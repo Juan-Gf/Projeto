@@ -56,6 +56,7 @@ public class ListaCliente extends javax.swing.JFrame {
 
         lblLogo.setText("Logo da loja");
 
+        lblIDCliente.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         lblIDCliente.setText("ID Cliente:");
 
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
