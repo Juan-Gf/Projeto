@@ -15,10 +15,4 @@
 - [x] Controle de Estoque
 
 
-## Documentação
-
-![](Documentação/Documentação_1.jpg)
-![](Documentação/Documentação_2.jpg)
-![](Documentação/Documentação_3.jpg)
-![](Documentação/Documentação_4.jpg)
 
