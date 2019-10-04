@@ -15,6 +15,4 @@
 - [x] Controle de Estoque
 
 
-## Documentação
-
 
