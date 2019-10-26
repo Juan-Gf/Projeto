@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pacote_cliente;
+package view;
 
 /**
  *
  * @author juan
  */
-public class ModifcaClienteView extends javax.swing.JFrame {
+public class ExibiCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form ModifcaClienteView
+     * Creates new form ExibiCliente
      */
-    public ModifcaClienteView() {
+    public ExibiCliente() {
         initComponents();
     }
 
@@ -27,6 +27,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PnlDadosPesoal = new javax.swing.JPanel();
         lblIDCliente = new javax.swing.JLabel();
@@ -45,8 +46,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         jFmtCelular = new javax.swing.JFormattedTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblConfEmail = new javax.swing.JLabel();
-        txtConfEmail = new javax.swing.JTextField();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -67,16 +66,27 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         lblUF = new javax.swing.JLabel();
         jFmtUF = new javax.swing.JFormattedTextField();
         ckboxEnd = new javax.swing.JCheckBox();
-        btnCancelar = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         BmnuBarra = new javax.swing.JMenuBar();
         JmnuExecutar = new javax.swing.JMenu();
         mItemSalvar = new javax.swing.JMenuItem();
         mItemCancelar = new javax.swing.JMenuItem();
         mItemSair = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Modifica Cliente");
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame1.setTitle("Modifica Cliente");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frExibir"); // NOI18N
         setResizable(false);
 
         lblIDCliente.setText("ID Cliente:");
@@ -84,6 +94,8 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         txtIDCliente.setEditable(false);
 
         lblNome.setText("Nome:");
+
+        txtNome.setEditable(false);
 
         lblCPF.setText("CPF:");
 
@@ -96,6 +108,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblNacimento.setText("Nacimento:");
 
+        cFmtNacimento.setEditable(false);
         try {
             cFmtNacimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -106,10 +119,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         cBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outro" }));
         cBoxSexo.setToolTipText("Sexo");
-        cBoxSexo.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
+        cBoxSexo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblTelefone.setText("Telefone:");
 
+        jFmtTelefone.setEditable(false);
         try {
             jFmtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
@@ -123,6 +137,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblCelular.setText("Celular:");
 
+        jFmtCelular.setEditable(false);
         try {
             jFmtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
@@ -136,8 +151,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblEmail.setText("E-mail:");
 
-        lblConfEmail.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblConfEmail.setText("Confirma E-mail:");
+        txtEmail.setEditable(false);
 
         javax.swing.GroupLayout PnlDadosPesoalLayout = new javax.swing.GroupLayout(PnlDadosPesoal);
         PnlDadosPesoal.setLayout(PnlDadosPesoalLayout);
@@ -146,10 +160,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                        .addComponent(lblConfEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtConfEmail))
                     .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                         .addComponent(lblEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -180,7 +190,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(cFmtNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         PnlDadosPesoalLayout.setVerticalGroup(
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,19 +225,18 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConfEmail)
-                    .addComponent(txtConfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(159, 159, 159))
+                .addGap(199, 199, 199))
         );
 
         jTabbedPane1.addTab("Dados Pessoais", PnlDadosPesoal);
 
         lblRua.setText("Rua:");
 
+        jTextField1.setEditable(false);
+
         lblNumero.setText("Numero:");
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -236,28 +245,35 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblComplemento.setText("Complemento:");
 
+        jTextField3.setEditable(false);
+
         lblCEP.setText("CEP:");
+
+        jFmtCEP.setEditable(false);
 
         lblBairro.setText("Bairro:");
 
+        txtBairro.setEditable(false);
+
         lblPonto.setText("Ponto de referencia:");
+
+        txtPonto.setEditable(false);
 
         lblPais.setText("Pais:");
 
+        txtPais.setEditable(false);
+
         lblCidade.setText("Cidade:");
+
+        txtCidade.setEditable(false);
 
         lblUF.setText("UF:");
 
+        jFmtUF.setEditable(false);
+
         ckboxEnd.setText("Endereço de entrega");
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-
-        btnSalvar.setText("Salvar");
+        btnSair.setText("Sair");
 
         javax.swing.GroupLayout PnlEnderecoLayout = new javax.swing.GroupLayout(PnlEndereco);
         PnlEndereco.setLayout(PnlEnderecoLayout);
@@ -268,9 +284,9 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PnlEnderecoLayout.createSequentialGroup()
                         .addComponent(lblCidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCidade)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
                         .addComponent(lblUF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,10 +299,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                    .addComponent(btnCancelar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                                         .addComponent(lblPonto)
@@ -315,7 +328,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jTextField3))
                                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(15, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PnlEnderecoLayout.setVerticalGroup(
             PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,11 +367,9 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(ckboxEnd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         jTabbedPane1.addTab("Endereço", PnlEndereco);
@@ -392,14 +403,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -409,6 +417,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_mItemSairActionPerformed
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
     private void jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtTelefoneActionPerformed
@@ -416,14 +428,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private void jFmtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCelularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtCelularActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,20 +446,20 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifcaClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifcaClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifcaClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifcaClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModifcaClienteView().setVisible(true);
+                new ExibiCliente().setVisible(true);
             }
         });
     }
@@ -465,8 +469,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JMenu JmnuExecutar;
     private javax.swing.JPanel PnlDadosPesoal;
     private javax.swing.JPanel PnlEndereco;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> cBoxSexo;
     private javax.swing.JFormattedTextField cFmtCPF;
     private javax.swing.JFormattedTextField cFmtNacimento;
@@ -475,6 +478,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFmtCelular;
     private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JFormattedTextField jFmtUF;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -485,7 +489,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblComplemento;
-    private javax.swing.JLabel lblConfEmail;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblIDCliente;
     private javax.swing.JLabel lblNacimento;
@@ -502,15 +505,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtConfEmail;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPonto;
     // End of variables declaration//GEN-END:variables
-
-    void setVisible(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

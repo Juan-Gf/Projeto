@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pacote_cliente;
+package view;
 
-import Pacote_cliente.ModifcaClienteView;
+import view.ModifcaClienteView;
 
 /**
  *

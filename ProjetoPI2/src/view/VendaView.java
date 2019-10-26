@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pacote_venda;
+package view;
 
 /**
  *
@@ -84,7 +84,6 @@ public class VendaView extends javax.swing.JFrame {
         codClient.setText("Nome Prod.:");
 
         txtCodProduto.setEditable(false);
-        txtCodProduto.setBackground(new java.awt.Color(255, 255, 255));
         txtCodProduto.setToolTipText("");
         txtCodProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +108,6 @@ public class VendaView extends javax.swing.JFrame {
         nome1.setText("Valor:");
 
         txtNome1.setEditable(false);
-        txtNome1.setBackground(new java.awt.Color(255, 255, 255));
         txtNome1.setToolTipText("");
         txtNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +313,7 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JLabel nome;
     private javax.swing.JLabel nome1;
     private javax.swing.JTextField txtCiddade;
-    private javax.swing.JTextField txtCodProduto;
+    public javax.swing.JTextField txtCodProduto;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
     // End of variables declaration//GEN-END:variables

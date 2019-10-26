@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pacote_principal;
+package view;
 
-import Pacote_cliente.ListaCliente;
-import Pacote_produto.telaProdutos;
-import Pacote_relatorio.Relatorio;
-import Pacote_venda.VendaView;
+import view.telaProdutos;
+import view.Relatorio;
+import view.VendaView;
 
 /**
  *
@@ -161,22 +160,22 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Pacote_cliente.ListaCliente cliente = new ListaCliente();
+       view.ListaCliente cliente = new ListaCliente();
        cliente.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Pacote_produto.telaProdutos produto = new telaProdutos();
+        view.telaProdutos produto = new telaProdutos();
         produto.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Pacote_venda.VendaView venda = new VendaView();
+        view.VendaView venda = new VendaView();
         venda.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Pacote_relatorio.Relatorio relatorio = new Relatorio();
+        view.Relatorio relatorio = new Relatorio();
         relatorio.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
