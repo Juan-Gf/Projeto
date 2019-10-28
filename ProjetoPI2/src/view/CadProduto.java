@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pacote_produto;
+package view;
 
 /**
  *
@@ -77,8 +77,6 @@ public class CadProduto extends javax.swing.JFrame {
         setTitle("Cadastro de Produtos");
         setResizable(false);
 
-        jPanel1.setBorder(null);
-
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel1.setText("Nome:");
 
@@ -116,7 +114,7 @@ public class CadProduto extends javax.swing.JFrame {
         jTextField5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField5.setToolTipText("");
-        jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextField7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
