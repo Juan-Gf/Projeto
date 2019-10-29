@@ -77,17 +77,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         tblVendasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID Cliente", "Pedido", "Data da venda", "Valor da venda"
@@ -99,15 +89,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         tblDetalhesVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Produtos", "Quantidade"
