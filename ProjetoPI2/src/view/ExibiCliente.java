@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juan
@@ -274,6 +276,11 @@ public class ExibiCliente extends javax.swing.JFrame {
         ckboxEnd.setText("Endereço de entrega");
 
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PnlEnderecoLayout = new javax.swing.GroupLayout(PnlEndereco);
         PnlEndereco.setLayout(PnlEnderecoLayout);
@@ -428,6 +435,12 @@ public class ExibiCliente extends javax.swing.JFrame {
     private void jFmtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCelularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtCelularActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+
+       new ListaCliente().setVisible(true);
+       this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

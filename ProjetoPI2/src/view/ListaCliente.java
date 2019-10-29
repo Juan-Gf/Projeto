@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
 
 /**
@@ -109,8 +110,18 @@ public class ListaCliente extends javax.swing.JFrame {
         });
 
         btnExibir.setText("Exibir");
+        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExibirActionPerformed(evt);
+            }
+        });
 
         btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
@@ -211,14 +222,27 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-       ModifcaClienteView modifica = new ModifcaClienteView();
-       modifica.setVisible(true);
+        ModifcaClienteView modifica = new ModifcaClienteView();
+        modifica.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         CadClientView cria = new CadClientView();
         cria.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        JOptionPane.showMessageDialog(null, "Deletado!");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+        JOptionPane.showMessageDialog(null, "Exibir listas de clientes? ");
+        new ExibiCliente().setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExibirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,8 +270,8 @@ public class ListaCliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ListaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-          /* Create and display the form */
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ListaCliente().setVisible(true);
