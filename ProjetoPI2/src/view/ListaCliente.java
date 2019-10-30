@@ -22,8 +22,8 @@ public class ListaCliente extends javax.swing.JFrame {
      */
     public ListaCliente() {
         initComponents();
+        this.LoadTable();
     }
-
     public void LoadTable() {
         ArrayList<String[]> linhasClientes = ClienteC.getClientes();
 
@@ -36,6 +36,7 @@ public class ListaCliente extends javax.swing.JFrame {
         for (String[] c : linhasClientes) {
             tblModCliente.addRow(c);
         }
+
 
     }
     
@@ -61,7 +62,6 @@ public class ListaCliente extends javax.swing.JFrame {
         btnExibir = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         mnuBarra = new javax.swing.JMenuBar();
         mnuExcutar = new javax.swing.JMenu();
         ImnuProd = new javax.swing.JMenuItem();
@@ -79,7 +79,7 @@ public class ListaCliente extends javax.swing.JFrame {
 
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
 
-        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", 1, 0));
+        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         tblClienteC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,13 +130,6 @@ public class ListaCliente extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PnlListaClienteLayout = new javax.swing.GroupLayout(PnlListaCliente);
         PnlListaCliente.setLayout(PnlListaClienteLayout);
         PnlListaClienteLayout.setHorizontalGroup(
@@ -165,10 +158,6 @@ public class ListaCliente extends javax.swing.JFrame {
                                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 58, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(25, 25, 25))
         );
         PnlListaClienteLayout.setVerticalGroup(
             PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,9 +171,7 @@ public class ListaCliente extends javax.swing.JFrame {
                     .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,10 +268,6 @@ public class ListaCliente extends javax.swing.JFrame {
         }     // TODO add your handling code here:
     }//GEN-LAST:event_btnExibirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.LoadTable();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -333,7 +316,6 @@ public class ListaCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnProcurar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lblIDCliente;

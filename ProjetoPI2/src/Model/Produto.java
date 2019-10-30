@@ -20,7 +20,7 @@ public class Produto {
     private String marcaProduto;
     private String categoriaProduto;
     private String generoProduto;
-    private int tamanhoProduto;
+    private String tamanhoProduto;
     private double precoProduto;
     private String descricaoProduto;
     
@@ -30,7 +30,8 @@ public class Produto {
          this.idProduto =  qtdProdutosCriados;
     }
     
-    public Produto(String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, String generoProduto, int tamanhoProduto, double precoProduto, String descricaoProduto) {
+    public Produto(String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, 
+            String generoProduto, String tamanhoProduto, double precoProduto, String descricaoProduto) {
         qtdProdutosCriados++;
         this.idProduto = qtdProdutosCriados;
         this.nomeProduto = nomeProduto;
@@ -44,7 +45,7 @@ public class Produto {
         
     }
     
-    public Produto(int idProduto, String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, String generoProduto, int tamanhoProduto, double precoProduto, String descricaoProduto) {
+    public Produto(int idProduto, String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, String generoProduto, String tamanhoProduto, double precoProduto, String descricaoProduto) {
         
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
@@ -159,14 +160,14 @@ public class Produto {
     /**
      * @return the tamanhoProduto
      */
-    public int getTamanhoProduto() {
+    public String getTamanhoProduto() {
         return tamanhoProduto;
     }
 
     /**
      * @param tamanhoProduto the tamanhoProduto to set
      */
-    public void setTamanhoProduto(int tamanhoProduto) {
+    public void setTamanhoProduto(String tamanhoProduto) {
         this.tamanhoProduto = tamanhoProduto;
     }
 

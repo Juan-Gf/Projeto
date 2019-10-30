@@ -5,6 +5,8 @@
  */
 package view;
 
+import Controller.ProdutoController;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,7 @@ public class CadProduto extends javax.swing.JFrame {
     public CadProduto() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +33,7 @@ public class CadProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         grupoGenero = new javax.swing.ButtonGroup();
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        grupoTamanho = new javax.swing.ButtonGroup();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -52,14 +55,12 @@ public class CadProduto extends javax.swing.JFrame {
         txtPreco = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        cbTamanho1 = new javax.swing.JCheckBox();
-        cbTamanho2 = new javax.swing.JCheckBox();
         txtQuantidade = new javax.swing.JFormattedTextField();
-        cbTamanho3 = new javax.swing.JCheckBox();
         txtNome = new javax.swing.JTextField();
         jCbMarca = new javax.swing.JComboBox<>();
         jCbCategoria = new javax.swing.JComboBox<>();
         jblGenero = new javax.swing.JLabel();
+        jCbTamanho = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuExcutar = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -141,32 +142,9 @@ public class CadProduto extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(cbTamanho1);
-        cbTamanho1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cbTamanho1.setText("35 à 38");
-        cbTamanho1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTamanho1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(cbTamanho2);
-        cbTamanho2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cbTamanho2.setText("39 à 42");
-
         txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQuantidadeActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(cbTamanho3);
-        cbTamanho3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cbTamanho3.setText("43 à 45");
-        cbTamanho3.setToolTipText("");
-        cbTamanho3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTamanho3ActionPerformed(evt);
             }
         });
 
@@ -180,6 +158,8 @@ public class CadProduto extends javax.swing.JFrame {
 
         jblGenero.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jblGenero.setText("Genêro:");
+
+        jCbTamanho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "35 à 38", "39 à 42", "43 à 45" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,14 +186,17 @@ public class CadProduto extends javax.swing.JFrame {
                             .addComponent(jlbPreco))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jCbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(27, 27, 27)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jCbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(15, 15, 15)
                                                 .addComponent(jlbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,20 +205,13 @@ public class CadProduto extends javax.swing.JFrame {
                                                 .addComponent(JlbQuantidade)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtNome)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jrbFeminino)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jCbTamanho, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jrbFeminino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrbMasculino))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cbTamanho1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbTamanho2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbTamanho3))
-                                    .addComponent(txtNome)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jrbMasculino)))))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -269,10 +245,8 @@ public class CadProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbTamanho)
-                    .addComponent(cbTamanho1)
-                    .addComponent(cbTamanho2)
-                    .addComponent(cbTamanho3))
-                .addGap(12, 12, 12)
+                    .addComponent(jCbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbPreco)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -281,7 +255,7 @@ public class CadProduto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlbDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,10 +296,6 @@ public class CadProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbTamanho1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTamanho1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTamanho1ActionPerformed
-
     private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecoActionPerformed
@@ -339,12 +309,26 @@ public class CadProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQuantidadeActionPerformed
 
-    private void cbTamanho3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTamanho3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTamanho3ActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-   
+        String genero;
+        if(grupoGenero.isSelected((ButtonModel) jrbFeminino)){
+            genero = "Feminino";
+            
+        }else{
+            genero= "Masculino";
+        }
+
+        
+        
+        if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),txtQuantidade.getText(),jCbMarca.getSelectedItem().toString(),
+                jCbCategoria.getSelectedItem().toString(),genero,jCbTamanho.getSelectedItem().toString(),txtPreco.getText(),txtDescricao.getText()))
+                {
+                    //Recarrego a tabela com os dados resgatados do banco de dados                   
+                    
+                    JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                }
        JOptionPane.showMessageDialog(null, "salvo!");      // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -388,13 +372,11 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.JMenu MenuExcutar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox cbTamanho1;
-    private javax.swing.JCheckBox cbTamanho2;
-    private javax.swing.JCheckBox cbTamanho3;
     private javax.swing.ButtonGroup grupoGenero;
+    private javax.swing.ButtonGroup grupoTamanho;
     private javax.swing.JComboBox<String> jCbCategoria;
     private javax.swing.JComboBox<String> jCbMarca;
+    private javax.swing.JComboBox<String> jCbTamanho;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

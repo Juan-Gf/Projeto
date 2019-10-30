@@ -5,6 +5,10 @@
  */
 package view;
 
+import Controller.ProdutoController;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author matheus.dcosta2
@@ -16,6 +20,20 @@ public class telaProdutos extends javax.swing.JFrame {
      */
     public telaProdutos() {
         initComponents();
+    }
+    
+    public void LoadTable() {
+        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+
+        DefaultTableModel tblModProduto = new DefaultTableModel();
+        tblModProduto.addColumn("ID produto");
+        tblModProduto.addColumn("Nome");
+        tblModProduto.addColumn("Marca");
+        tblProduto.setModel(tblModProduto);
+
+        for (String[] c : linhasProdutos) {
+            tblModProduto.addRow(c);
+        }
     }
 
     /**
@@ -30,7 +48,7 @@ public class telaProdutos extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProduto = new javax.swing.JTable();
         btnDeletar = new javax.swing.JToggleButton();
         btnModificar = new javax.swing.JToggleButton();
         btnNovo = new javax.swing.JButton();
@@ -49,15 +67,9 @@ public class telaProdutos extends javax.swing.JFrame {
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos cadastrados"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Marca"
@@ -71,7 +83,7 @@ public class telaProdutos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblProduto);
 
         btnDeletar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnDeletar.setText("Deletar");
@@ -184,6 +196,9 @@ public class telaProdutos extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
+        CadProduto aparece = new CadProduto();
+        aparece.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
@@ -240,10 +255,10 @@ public class telaProdutos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCbFiltro;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JMenuBar mnuBarra;
     private javax.swing.JMenu mnuExecutar;
+    private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }

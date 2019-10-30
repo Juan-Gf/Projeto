@@ -15,7 +15,7 @@ import Model.Produto;
  */
 public class ProdutoController {
     
-    public static boolean salvar(String pNomeProduto, String pModeloProduto,int pQuantidadeProduto, String pMarcaProduto, String pCategoriaProduto, String pGeneroProduto, int pTamanhoProduto, double pPrecoProduto, String pDescricaoProduto)
+    public static boolean salvar(String pNomeProduto, String pModeloProduto,int pQuantidadeProduto, String pMarcaProduto, String pCategoriaProduto, String pGeneroProduto, String pTamanhoProduto, double pPrecoProduto, String pDescricaoProduto)
     {
         //Salvo na memória
         Produto p =  new Produto(pNomeProduto,pModeloProduto,pQuantidadeProduto,pMarcaProduto,pCategoriaProduto,pGeneroProduto,pTamanhoProduto,pPrecoProduto,pDescricaoProduto);
@@ -27,7 +27,7 @@ public class ProdutoController {
         return ProdutoDAO.excluirProduto(pIDProduto);
     }
     
-    public static boolean atualizar(int pIdProduto,String pNomeProduto, String pModeloProduto,int pQuantidadeProduto, String pMarcaProduto, String pCategoriaProduto, String pGeneroProduto, int pTamanhoProduto, double pPrecoProduto, String pDescricaoProduto)
+    public static boolean atualizar(int pIdProduto,String pNomeProduto, String pModeloProduto,int pQuantidadeProduto, String pMarcaProduto, String pCategoriaProduto, String pGeneroProduto, String pTamanhoProduto, double pPrecoProduto, String pDescricaoProduto)
     {
         Produto p =  new Produto(pIdProduto,pNomeProduto,pModeloProduto,pQuantidadeProduto,pMarcaProduto,pCategoriaProduto,pGeneroProduto,pTamanhoProduto,pPrecoProduto,pDescricaoProduto);
         return ProdutoDAO.atualizarProduto(p);
