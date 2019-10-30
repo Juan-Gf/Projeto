@@ -1,5 +1,6 @@
 package view;
 
+import Controller.ClienteC;
 import javax.swing.JOptionPane;
 
 /*
@@ -36,9 +37,9 @@ public class CadClientView extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         lblCPF = new javax.swing.JLabel();
-        cFmtCPF = new javax.swing.JFormattedTextField();
+        FmtCPF = new javax.swing.JFormattedTextField();
         lblNacimento = new javax.swing.JLabel();
-        cFmtNacimento = new javax.swing.JFormattedTextField();
+        FmtNascimento = new javax.swing.JFormattedTextField();
         lblSexo = new javax.swing.JLabel();
         cBoxSexo = new javax.swing.JComboBox<>();
         lblTelefone = new javax.swing.JLabel();
@@ -51,11 +52,11 @@ public class CadClientView extends javax.swing.JFrame {
         txtConfEmail = new javax.swing.JTextField();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRua = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         lblComplemento = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtComplemento = new javax.swing.JTextField();
         lblCEP = new javax.swing.JLabel();
         jFmtCEP = new javax.swing.JFormattedTextField();
         lblBairro = new javax.swing.JLabel();
@@ -77,6 +78,7 @@ public class CadClientView extends javax.swing.JFrame {
         mItemCancelar = new javax.swing.JMenuItem();
         mItemSair = new javax.swing.JMenuItem();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Cliente");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -84,10 +86,16 @@ public class CadClientView extends javax.swing.JFrame {
 
         lblNome.setText("Nome:");
 
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
         lblCPF.setText("CPF:");
 
         try {
-            cFmtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            FmtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -95,7 +103,7 @@ public class CadClientView extends javax.swing.JFrame {
         lblNacimento.setText("Nascimento:");
 
         try {
-            cFmtNacimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            FmtNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -166,11 +174,11 @@ public class CadClientView extends javax.swing.JFrame {
                                     .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                                            .addComponent(cFmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(FmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(lblNacimento)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cFmtNacimento))))))
+                                            .addComponent(FmtNascimento))))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlDadosPesoalLayout.createSequentialGroup()
                             .addComponent(lblEmail)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -192,9 +200,9 @@ public class CadClientView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCPF)
-                    .addComponent(cFmtCPF)
+                    .addComponent(FmtCPF)
                     .addComponent(lblNacimento)
-                    .addComponent(cFmtNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FmtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
@@ -224,9 +232,9 @@ public class CadClientView extends javax.swing.JFrame {
 
         lblNumero.setText("Numero:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
             }
         });
 
@@ -294,12 +302,12 @@ public class CadClientView extends javax.swing.JFrame {
                                 .addGap(4, 12, Short.MAX_VALUE)
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(27, 27, 27)
                                         .addComponent(lblComplemento)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3))
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtComplemento))
+                                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ckboxEnd, javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,13 +334,13 @@ public class CadClientView extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRua)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumero)
                     .addComponent(lblComplemento)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCEP)
@@ -420,20 +428,43 @@ public class CadClientView extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
 
-       
+       ListaCliente aparece = new ListaCliente();
+       aparece.setVisible(true);
        this.dispose();       
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       JOptionPane.showMessageDialog(null,"Salvo!");
+       
+        //String sexo= cBoxSexo.getSelectedItem().toString();
+        if(ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+                jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
+                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
+                {
+                    //Recarrego a tabela com os dados resgatados do banco de dados                   
+                    
+                    JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                }
+
+        
+        
+        
+        
+        JOptionPane.showMessageDialog(null,"Salvo!");
         new ListaCliente().setVisible(true);
-       this.dispose();        // TODO add your handling code here:
+       
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,23 +503,20 @@ public class CadClientView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BmnuBarra;
+    private javax.swing.JFormattedTextField FmtCPF;
+    private javax.swing.JFormattedTextField FmtNascimento;
     private javax.swing.JMenu JmnuExecutar;
     private javax.swing.JPanel PnlDadosPesoal;
     private javax.swing.JPanel PnlEndereco;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cBoxSexo;
-    private javax.swing.JFormattedTextField cFmtCPF;
-    private javax.swing.JFormattedTextField cFmtNacimento;
     private javax.swing.JCheckBox ckboxEnd;
     private javax.swing.JFormattedTextField jFmtCEP;
     private javax.swing.JFormattedTextField jFmtCelular;
     private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JFormattedTextField jFmtUF;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPF;
@@ -511,10 +539,13 @@ public class CadClientView extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtConfEmail;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPonto;
+    private javax.swing.JTextField txtRua;
     // End of variables declaration//GEN-END:variables
 }

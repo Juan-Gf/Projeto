@@ -7,6 +7,9 @@ package view;
 
 import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
+import Controller.ClienteC;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +23,22 @@ public class ListaCliente extends javax.swing.JFrame {
     public ListaCliente() {
         initComponents();
     }
+
+    public void LoadTable() {
+        ArrayList<String[]> linhasClientes = ClienteC.getClientes();
+
+        DefaultTableModel tblModCliente = new DefaultTableModel();
+        tblModCliente.addColumn("Cliente ID");
+        tblModCliente.addColumn("Nome");
+        tblModCliente.addColumn("CPF");
+        tblClienteC.setModel(tblModCliente);
+
+        for (String[] c : linhasClientes) {
+            tblModCliente.addRow(c);
+        }
+
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,6 +61,7 @@ public class ListaCliente extends javax.swing.JFrame {
         btnExibir = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         mnuBarra = new javax.swing.JMenuBar();
         mnuExcutar = new javax.swing.JMenu();
         ImnuProd = new javax.swing.JMenuItem();
@@ -59,40 +79,25 @@ public class ListaCliente extends javax.swing.JFrame {
 
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
 
-        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", 1, 0));
 
         tblClienteC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID Cliente", "Nome"
+                "ID", "Nome"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblClienteC.setToolTipText("");
         pnlClientes.setViewportView(tblClienteC);
 
         btnNovo.setText("Novo");
@@ -125,6 +130,13 @@ public class ListaCliente extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PnlListaClienteLayout = new javax.swing.GroupLayout(PnlListaCliente);
         PnlListaCliente.setLayout(PnlListaClienteLayout);
         PnlListaClienteLayout.setHorizontalGroup(
@@ -153,6 +165,10 @@ public class ListaCliente extends javax.swing.JFrame {
                                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 58, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(25, 25, 25))
         );
         PnlListaClienteLayout.setVerticalGroup(
             PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +182,9 @@ public class ListaCliente extends javax.swing.JFrame {
                     .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,9 +240,19 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        ModifcaClienteView modifica = new ModifcaClienteView();
-        modifica.setVisible(true);
-        this.dispose();
+        if (tblClienteC.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if (tblClienteC.getSelectedRow() >= 0) {
+                ModifcaClienteView modifica = new ModifcaClienteView();
+                modifica.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há clientes para editar!");
+        }
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -239,10 +267,23 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-        JOptionPane.showMessageDialog(null, "Exibir listas de clientes? ");
-        new ExibiCliente().setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+     if (tblClienteC.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if (tblClienteC.getSelectedRow() >= 0) {
+                ExibirCliente aparece = new ExibirCliente();
+                aparece.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para exibir os dados!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há clientes cadastrados");
+        }     // TODO add your handling code here:
     }//GEN-LAST:event_btnExibirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.LoadTable();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +320,7 @@ public class ListaCliente extends javax.swing.JFrame {
         });
 
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ImnuProd;
@@ -291,6 +333,7 @@ public class ListaCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnProcurar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lblIDCliente;

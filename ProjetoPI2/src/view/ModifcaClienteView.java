@@ -47,8 +47,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         jFmtCelular = new javax.swing.JFormattedTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblConfEmail = new javax.swing.JLabel();
-        txtConfEmail = new javax.swing.JTextField();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -68,7 +66,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         txtCidade = new javax.swing.JTextField();
         lblUF = new javax.swing.JLabel();
         jFmtUF = new javax.swing.JFormattedTextField();
-        ckboxEnd = new javax.swing.JCheckBox();
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         BmnuBarra = new javax.swing.JMenuBar();
@@ -89,7 +86,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblCPF.setText("CPF:");
 
-        cFmtCPF.setEditable(false);
         try {
             cFmtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -138,9 +134,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblEmail.setText("E-mail:");
 
-        lblConfEmail.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblConfEmail.setText("Confirma E-mail:");
-
         javax.swing.GroupLayout PnlDadosPesoalLayout = new javax.swing.GroupLayout(PnlDadosPesoal);
         PnlDadosPesoal.setLayout(PnlDadosPesoalLayout);
         PnlDadosPesoalLayout.setHorizontalGroup(
@@ -148,10 +141,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                        .addComponent(lblConfEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtConfEmail))
                     .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                         .addComponent(lblEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,7 +171,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(cFmtNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         PnlDadosPesoalLayout.setVerticalGroup(
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,11 +206,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConfEmail)
-                    .addComponent(txtConfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(159, 159, 159))
+                .addGap(212, 212, 212))
         );
 
         jTabbedPane1.addTab("Dados Pessoais", PnlDadosPesoal);
@@ -249,8 +234,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         lblCidade.setText("Cidade:");
 
         lblUF.setText("UF:");
-
-        ckboxEnd.setText("Endereço de entrega");
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +267,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                         .addGap(86, 86, 86))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ckboxEnd, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                                 .addComponent(lblPais)
                                 .addGap(26, 26, 26)
@@ -322,7 +304,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jTextField3))
                                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(15, Short.MAX_VALUE))))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
         PnlEnderecoLayout.setVerticalGroup(
             PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,9 +341,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                     .addComponent(lblUF)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(ckboxEnd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -484,7 +464,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cBoxSexo;
     private javax.swing.JFormattedTextField cFmtCPF;
     private javax.swing.JFormattedTextField cFmtNacimento;
-    private javax.swing.JCheckBox ckboxEnd;
     private javax.swing.JFormattedTextField jFmtCEP;
     private javax.swing.JFormattedTextField jFmtCelular;
     private javax.swing.JFormattedTextField jFmtTelefone;
@@ -499,7 +478,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblComplemento;
-    private javax.swing.JLabel lblConfEmail;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblIDCliente;
     private javax.swing.JLabel lblNacimento;
@@ -516,7 +494,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtConfEmail;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtNome;
