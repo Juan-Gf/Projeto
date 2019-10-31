@@ -450,16 +450,8 @@ public class CadClientView extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
                 }else{
                     JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
-                }
-
-        
-        
-        
-        
-        JOptionPane.showMessageDialog(null,"Salvo!");
-        new ListaCliente().setVisible(true);
-        
-       
+                }    
+        new ListaCliente().setVisible(true);  
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 

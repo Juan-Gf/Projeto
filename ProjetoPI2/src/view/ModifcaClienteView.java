@@ -6,6 +6,8 @@
 package view;
 
 import javax.swing.JOptionPane;
+import Model.Cliente;
+import Controller.ClienteC;
 
 /**
  *
@@ -18,7 +20,12 @@ public class ModifcaClienteView extends javax.swing.JFrame {
      */
     public ModifcaClienteView() {
         initComponents();
+
     }
+    
+    
+    
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -242,7 +249,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             }
         });
 
-        btnSalvar.setText("Salvar");
+        btnSalvar.setText("Atualizar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -501,7 +508,5 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtPonto;
     // End of variables declaration//GEN-END:variables
 
-    void setVisible(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

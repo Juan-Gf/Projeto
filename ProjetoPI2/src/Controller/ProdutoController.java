@@ -41,7 +41,7 @@ public class ProdutoController {
         
         for(int i=0;i<produtos.size();i++)
         {
-            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getIdProduto()),produtos.get(i).getNomeProduto(),produtos.get(i).getModeloProduto() ,String.valueOf(produtos.get(i).getQuantidadeProduto()),produtos.get(i).getMarcaProduto(),produtos.get(i).getCategoriaProduto(),produtos.get(i).getGeneroProduto(),String.valueOf(produtos.get(i).getTamanhoProduto()),String.valueOf(produtos.get(i).getPrecoProduto()),produtos.get(i).getDescricaoProduto() });
+            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getIdProduto()),produtos.get(i).getNomeProduto() ,produtos.get(i).getMarcaProduto(),String.valueOf(produtos.get(i).getPrecoProduto()) });
         
         }
         

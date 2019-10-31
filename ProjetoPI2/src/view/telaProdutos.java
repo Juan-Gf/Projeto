@@ -20,6 +20,7 @@ public class telaProdutos extends javax.swing.JFrame {
      */
     public telaProdutos() {
         initComponents();
+        LoadTable();
     }
     
     public void LoadTable() {
@@ -29,11 +30,17 @@ public class telaProdutos extends javax.swing.JFrame {
         tblModProduto.addColumn("ID produto");
         tblModProduto.addColumn("Nome");
         tblModProduto.addColumn("Marca");
+        tblModProduto.addColumn("Preco");
         tblProduto.setModel(tblModProduto);
 
         for (String[] c : linhasProdutos) {
             tblModProduto.addRow(c);
         }
+        
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(100);//Nome
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(300);//Deescrição
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);//Valor
     }
 
     /**
@@ -72,11 +79,11 @@ public class telaProdutos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Marca"
+                "ID", "Nome", "Marca", "Preco"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -196,8 +203,7 @@ public class telaProdutos extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
-        CadProduto aparece = new CadProduto();
-        aparece.setVisible(true);
+        new CadProduto().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
