@@ -61,10 +61,6 @@ public class CadProduto extends javax.swing.JFrame {
         jCbCategoria = new javax.swing.JComboBox<>();
         jblGenero = new javax.swing.JLabel();
         jCbTamanho = new javax.swing.JComboBox<>();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        MenuExcutar = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar2.add(jMenu1);
@@ -255,28 +251,13 @@ public class CadProduto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlbDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
-
-        MenuExcutar.setText("Executar");
-
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Novo-18dp.png"))); // NOI18N
-        jMenuItem4.setText("Novo");
-        MenuExcutar.add(jMenuItem4);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Exit-18dp.png"))); // NOI18N
-        jMenuItem3.setText("Sair");
-        MenuExcutar.add(jMenuItem3);
-
-        jMenuBar1.add(MenuExcutar);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -320,7 +301,7 @@ public class CadProduto extends javax.swing.JFrame {
 
         
         
-        if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),txtQuantidade.getText(),jCbMarca.getSelectedItem().toString(),
+      /*  if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),txtQuantidade.getText(),jCbMarca.getSelectedItem().toString(),
                 jCbCategoria.getSelectedItem().toString(),genero,jCbTamanho.getSelectedItem().toString(),txtPreco.getText(),txtDescricao.getText()))
                 {
                     //Recarrego a tabela com os dados resgatados do banco de dados                   
@@ -329,6 +310,7 @@ public class CadProduto extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
                 }
+        */
        JOptionPane.showMessageDialog(null, "salvo!");      // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -369,7 +351,6 @@ public class CadProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlbQuantidade;
-    private javax.swing.JMenu MenuExcutar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup grupoGenero;
@@ -380,10 +361,7 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblGenero;
