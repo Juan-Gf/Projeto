@@ -37,12 +37,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
         btnProduto = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
-        mnuBarra = new javax.swing.JMenuBar();
-        mnuExcutar = new javax.swing.JMenu();
-        ImnuProd = new javax.swing.JMenuItem();
-        ImnuVenda = new javax.swing.JMenuItem();
-        ImnuRelatorio = new javax.swing.JMenuItem();
-        ImnuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,32 +109,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
                 .addGap(67, 67, 67))
         );
 
-        mnuBarra.setBackground(new java.awt.Color(204, 204, 204));
-
-        mnuExcutar.setText("Executar");
-
-        ImnuProd.setText("Produto");
-        mnuExcutar.add(ImnuProd);
-
-        ImnuVenda.setText("Venda");
-        ImnuVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImnuVendaActionPerformed(evt);
-            }
-        });
-        mnuExcutar.add(ImnuVenda);
-
-        ImnuRelatorio.setText("Relatorio");
-        mnuExcutar.add(ImnuRelatorio);
-
-        ImnuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Exit-18dp.png"))); // NOI18N
-        ImnuSair.setText("Sair");
-        mnuExcutar.add(ImnuSair);
-
-        mnuBarra.add(mnuExcutar);
-
-        setJMenuBar(mnuBarra);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,10 +122,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ImnuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImnuVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
        view.ListaCliente cliente = new ListaCliente();
@@ -215,17 +179,11 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ImnuProd;
-    private javax.swing.JMenuItem ImnuRelatorio;
-    private javax.swing.JMenuItem ImnuSair;
-    private javax.swing.JMenuItem ImnuVenda;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnProduto;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnVenda;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JMenuBar mnuBarra;
-    private javax.swing.JMenu mnuExcutar;
     // End of variables declaration//GEN-END:variables
 }

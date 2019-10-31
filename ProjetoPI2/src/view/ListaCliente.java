@@ -62,12 +62,6 @@ public class ListaCliente extends javax.swing.JFrame {
         btnExibir = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        mnuBarra = new javax.swing.JMenuBar();
-        mnuExcutar = new javax.swing.JMenu();
-        ImnuProd = new javax.swing.JMenuItem();
-        ImnuVenda = new javax.swing.JMenuItem();
-        ImnuRelatorio = new javax.swing.JMenuItem();
-        ImnuSair = new javax.swing.JMenuItem();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -180,32 +174,6 @@ public class ListaCliente extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        mnuBarra.setBackground(new java.awt.Color(204, 204, 204));
-
-        mnuExcutar.setText("Executar");
-
-        ImnuProd.setText("Produto");
-        mnuExcutar.add(ImnuProd);
-
-        ImnuVenda.setText("Venda");
-        ImnuVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImnuVendaActionPerformed(evt);
-            }
-        });
-        mnuExcutar.add(ImnuVenda);
-
-        ImnuRelatorio.setText("Relatorio");
-        mnuExcutar.add(ImnuRelatorio);
-
-        ImnuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Exit-18dp.png"))); // NOI18N
-        ImnuSair.setText("Sair");
-        mnuExcutar.add(ImnuSair);
-
-        mnuBarra.add(mnuExcutar);
-
-        setJMenuBar(mnuBarra);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -221,10 +189,6 @@ public class ListaCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ImnuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImnuVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         if (tblClienteC.getRowCount() > 0) {
@@ -249,7 +213,19 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        JOptionPane.showMessageDialog(null, "Deletado!");
+        
+         if (tblClienteC.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if (tblClienteC.getSelectedRow() >= 0) {   
+                JOptionPane.showMessageDialog(this, "Cliente deletado!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente a ser deletado!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há clientes para deletar!");
+        }
+        
+       
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -306,10 +282,6 @@ public class ListaCliente extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ImnuProd;
-    private javax.swing.JMenuItem ImnuRelatorio;
-    private javax.swing.JMenuItem ImnuSair;
-    private javax.swing.JMenuItem ImnuVenda;
     private javax.swing.JPanel PnlListaCliente;
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnExibir;
@@ -319,8 +291,6 @@ public class ListaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lblIDCliente;
-    private javax.swing.JMenuBar mnuBarra;
-    private javax.swing.JMenu mnuExcutar;
     private javax.swing.JScrollPane pnlClientes;
     private javax.swing.JTable tblClienteC;
     private javax.swing.JTextField txtIDCliente;
