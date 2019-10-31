@@ -39,5 +39,18 @@ public class ClienteC {
         return ClienteDAO.atualizar(p);
 
     }
+    
+    public static ArrayList<String[]> getClientes()
+    {
+        ArrayList<Cliente> cliente = ClienteDAO.getClientes();
+        ArrayList<String[]> listaClientes = new ArrayList<>();
+        
+        for (int i = 0; i < cliente.size(); i++) {
+            listaClientes.add(new String[]{String.valueOf(cliente.get(i).getId()),cliente.get(i).getNome(),cliente.get(i).getCPF()});
+            
+        }
+        
+        return listaClientes;
+    }
 
 }

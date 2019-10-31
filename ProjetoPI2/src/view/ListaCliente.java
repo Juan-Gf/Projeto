@@ -7,6 +7,9 @@ package view;
 
 import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
+import Controller.ClienteC;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,7 +22,24 @@ public class ListaCliente extends javax.swing.JFrame {
      */
     public ListaCliente() {
         initComponents();
+        this.LoadTable();
     }
+    public void LoadTable() {
+        ArrayList<String[]> linhasClientes = ClienteC.getClientes();
+
+        DefaultTableModel tblModCliente = new DefaultTableModel();
+        tblModCliente.addColumn("Cliente ID");
+        tblModCliente.addColumn("Nome");
+        tblModCliente.addColumn("CPF");
+        tblClienteC.setModel(tblModCliente);
+
+        for (String[] c : linhasClientes) {
+            tblModCliente.addRow(c);
+        }
+
+
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,36 +83,21 @@ public class ListaCliente extends javax.swing.JFrame {
 
         tblClienteC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID Cliente", "Nome"
+                "ID", "Nome"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblClienteC.setToolTipText("");
         pnlClientes.setViewportView(tblClienteC);
 
         btnNovo.setText("Novo");
@@ -166,7 +171,7 @@ public class ListaCliente extends javax.swing.JFrame {
                     .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(35, 35, 35)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,9 +227,19 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        ModifcaClienteView modifica = new ModifcaClienteView();
-        modifica.setVisible(true);
-        this.dispose();
+        if (tblClienteC.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if (tblClienteC.getSelectedRow() >= 0) {
+                ModifcaClienteView modifica = new ModifcaClienteView();
+                modifica.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há clientes para editar!");
+        }
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -239,9 +254,18 @@ public class ListaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-        JOptionPane.showMessageDialog(null, "Exibir listas de clientes? ");
-        new ExibiCliente().setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+     if (tblClienteC.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if (tblClienteC.getSelectedRow() >= 0) {
+                ExibirCliente aparece = new ExibirCliente();
+                aparece.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para exibir os dados!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há clientes cadastrados");
+        }     // TODO add your handling code here:
     }//GEN-LAST:event_btnExibirActionPerformed
 
     /**
@@ -279,6 +303,7 @@ public class ListaCliente extends javax.swing.JFrame {
         });
 
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ImnuProd;

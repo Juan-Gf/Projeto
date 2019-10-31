@@ -38,7 +38,7 @@ public class Relatorio extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDetalhesVenda = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuExcutar = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -117,7 +117,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         jButton1.setText("Sair");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,7 +140,7 @@ public class Relatorio extends javax.swing.JFrame {
                                     .addComponent(lblAte)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jFmtDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnPesquisar))))
                 .addContainerGap(54, Short.MAX_VALUE))
@@ -149,7 +149,7 @@ public class Relatorio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,7 +241,6 @@ public class Relatorio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JFormattedTextField jFmtDataFim;
     private javax.swing.JFormattedTextField jFmtDataInc;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
@@ -249,6 +248,7 @@ public class Relatorio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAte;
     private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JTable tblDetalhesVenda;
     private javax.swing.JTable tblVendasRealizadas;
     // End of variables declaration//GEN-END:variables

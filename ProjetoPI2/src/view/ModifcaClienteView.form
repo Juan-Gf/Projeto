@@ -104,11 +104,6 @@
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblConfEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtConfEmail" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtEmail" max="32767" attributes="0"/>
@@ -148,7 +143,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -192,12 +187,7 @@
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblConfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtConfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -227,7 +217,6 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="cFmtCPF">
               <Properties>
-                <Property name="editable" type="boolean" value="false"/>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
@@ -305,14 +294,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblConfEmail">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="11"/>
-                <Property name="text" type="java.lang.String" value="Confirma E-mail:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtConfEmail">
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="PnlEndereco">
@@ -342,7 +323,6 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="ckboxEnd" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblPais" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -394,7 +374,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -442,9 +422,7 @@
                           <Component id="txtCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFmtUF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="ckboxEnd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="91" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnSalvar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btnCancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -520,11 +498,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFmtUF">
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckboxEnd">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o de entrega"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnCancelar">
               <Properties>
