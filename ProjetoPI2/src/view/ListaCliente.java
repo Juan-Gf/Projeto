@@ -129,12 +129,11 @@ public class ListaCliente extends javax.swing.JFrame {
         PnlListaClienteLayout.setHorizontalGroup(
             PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlListaClienteLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlClientes, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PnlListaClienteLayout.createSequentialGroup()
                         .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(PnlListaClienteLayout.createSequentialGroup()
                                 .addComponent(lblIDCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -149,15 +148,19 @@ public class ListaCliente extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 58, Short.MAX_VALUE)))
+                                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PnlListaClienteLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 56, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PnlListaClienteLayout.setVerticalGroup(
             PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlListaClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblIDCliente)
@@ -194,9 +197,10 @@ public class ListaCliente extends javax.swing.JFrame {
         if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
             if (tblClienteC.getSelectedRow() >= 0) {
-                ModifcaClienteView modifica = new ModifcaClienteView();
-                modifica.setVisible(true);
+                int row = tblClienteC.getSelectedRow();
                 
+                new ModifcaClienteView().setVisible(true);
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
             }
@@ -235,7 +239,7 @@ public class ListaCliente extends javax.swing.JFrame {
             if (tblClienteC.getSelectedRow() >= 0) {
                 ExibirCliente aparece = new ExibirCliente();
                 aparece.setVisible(true);
-                
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para exibir os dados!");
             }
