@@ -8,19 +8,42 @@ package view;
 import javax.swing.JOptionPane;
 import Model.Cliente;
 import Controller.ClienteC;
+import java.util.ArrayList;
 
 /**
  *
  * @author juan
  */
 public class ModifcaClienteView extends javax.swing.JFrame {
-
+    private int clienteID;
     /**
      * Creates new form ModifcaClienteView
      */
     public ModifcaClienteView() {
+        
         initComponents();
-
+        
+        
+    }
+    
+    public ModifcaClienteView(int id) {
+        initComponents();
+        clienteID = id;
+        carregaCliente(clienteID);
+        
+    }
+    
+    public void carregaCliente(int id){
+        ArrayList<Cliente> lista = new ArrayList<>();
+        lista = ClienteC.carregarClientes();
+        for (Cliente c : lista) {
+            if (c.getId() == id) {
+                txtIDCliente.setText(String.valueOf(c.getId()));
+                txtNome.setText(String.valueOf(c.getNome()));
+                
+            }
+        }
+        
     }
     
     
@@ -86,8 +109,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         setResizable(false);
 
         lblIDCliente.setText("ID Cliente:");
-
-        txtIDCliente.setEditable(false);
 
         lblNome.setText("Nome:");
 

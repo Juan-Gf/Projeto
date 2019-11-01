@@ -21,6 +21,7 @@ public class CadClientView extends javax.swing.JFrame {
      */
     public CadClientView() {
         initComponents();
+        
     }
 
     /**

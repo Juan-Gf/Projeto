@@ -53,5 +53,12 @@ public class ClienteC {
         
         return listaClientes;
     }
+    
+    public static ArrayList<Cliente> carregarClientes()
+    {
+        return ClienteDAO.getClientes();
+
+
+    }
 
 }
