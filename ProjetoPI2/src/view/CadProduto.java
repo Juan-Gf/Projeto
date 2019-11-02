@@ -63,6 +63,7 @@ public class CadProduto extends javax.swing.JFrame {
         jCbCategoria = new javax.swing.JComboBox<>();
         jblGenero = new javax.swing.JLabel();
         jCbTamanho = new javax.swing.JComboBox<>();
+        jCbGenero = new javax.swing.JComboBox<>();
 
         jMenu1.setText("File");
         jMenuBar2.add(jMenu1);
@@ -242,7 +243,7 @@ public class CadProduto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlbDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,6 +289,8 @@ public class CadProduto extends javax.swing.JFrame {
         String valorUnitario = txtPreco.getText();
         String quantidade = txtQuantidade.getText();
 
+        
+        
         if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),Integer.parseInt(quantidade),jCbMarca.getSelectedItem().toString(),
                 jCbCategoria.getSelectedItem().toString(),jCbGenero.getSelectedItem().toString(),jCbTamanho.getSelectedItem().toString(),Double.parseDouble(valorUnitario),txtDescricao.getText()))
                 {
@@ -297,15 +300,11 @@ public class CadProduto extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto");
                 }
-
+       
        new telaProdutos().setVisible(true);
        this.dispose();
        
        
-
-        
-       JOptionPane.showMessageDialog(null, "salvo!");      // TODO add your handling code here:
-
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
@@ -333,6 +332,7 @@ public class CadProduto extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
