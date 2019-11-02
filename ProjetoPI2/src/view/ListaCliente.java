@@ -202,7 +202,7 @@ public class ListaCliente extends javax.swing.JFrame {
                 int numeroLinha = tblClienteC.getSelectedRow();
                 int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
             if (tblClienteC.getSelectedRow() >= 0) {                
-                new ModifcaClienteView().setVisible(true);
+                new ModifcaClienteView(salvarId).setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
