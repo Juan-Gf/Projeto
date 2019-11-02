@@ -195,7 +195,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtPesquisa">
           <Events>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesquisaKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesquisaKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPesquisa">

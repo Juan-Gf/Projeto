@@ -9,15 +9,19 @@ import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
 import Controller.ClienteC;
 import Model.Cliente;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author juan
  */
 public class ListaCliente extends javax.swing.JFrame {
-
+private TableRowSorter trsFiltro;
     /**
      * Creates new form ListaCliente
      */
@@ -43,6 +47,11 @@ public class ListaCliente extends javax.swing.JFrame {
 
     }
     
+    public void Filtro(){
+        int ColumTable = 2;
+        trsFiltro.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText(), ColumTable));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,7 +65,7 @@ public class ListaCliente extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         PnlListaCliente = new javax.swing.JPanel();
         lblIDCliente = new javax.swing.JLabel();
-        txtIDCliente = new javax.swing.JTextField();
+        txtPesquisa = new javax.swing.JTextField();
         btnProcurar = new javax.swing.JButton();
         pnlClientes = new javax.swing.JScrollPane();
         tblClienteC = new javax.swing.JTable();
@@ -74,6 +83,12 @@ public class ListaCliente extends javax.swing.JFrame {
 
         lblIDCliente.setText("ID Cliente:");
 
+        txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesquisaKeyTyped(evt);
+            }
+        });
+
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
 
         pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -83,11 +98,11 @@ public class ListaCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome"
+                "ID", "Nome", "Cpf"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -140,7 +155,7 @@ public class ListaCliente extends javax.swing.JFrame {
                             .addGroup(PnlListaClienteLayout.createSequentialGroup()
                                 .addComponent(lblIDCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PnlListaClienteLayout.createSequentialGroup()
@@ -167,7 +182,7 @@ public class ListaCliente extends javax.swing.JFrame {
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblIDCliente)
-                        .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,6 +281,21 @@ public class ListaCliente extends javax.swing.JFrame {
         }     // TODO add your handling code here:
     }//GEN-LAST:event_btnExibirActionPerformed
 
+    private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
+        // TODO add your handling code here:
+        txtPesquisa.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String nome = (txtPesquisa.getText());
+                txtPesquisa.setText(nome);
+                Filtro();
+            }
+
+        });
+
+        trsFiltro = new TableRowSorter(tblClienteC.getModel());
+        tblClienteC.setRowSorter(trsFiltro);
+    }//GEN-LAST:event_txtPesquisaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -315,6 +345,6 @@ public class ListaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblIDCliente;
     private javax.swing.JScrollPane pnlClientes;
     private javax.swing.JTable tblClienteC;
-    private javax.swing.JTextField txtIDCliente;
+    private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }

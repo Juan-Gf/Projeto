@@ -6,16 +6,20 @@
 package view;
 
 import Controller.ProdutoController;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author matheus.dcosta2
  */
 public class telaProdutos extends javax.swing.JFrame {
-
+private TableRowSorter trsFiltro;
     /**
      * Creates new form telaProdutos
      */
@@ -42,6 +46,11 @@ public class telaProdutos extends javax.swing.JFrame {
         tblProduto.getColumnModel().getColumn(0).setPreferredWidth(100);//Nome
         tblProduto.getColumnModel().getColumn(1).setPreferredWidth(300);//Deescrição
         tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);//Valor
+    }
+    
+    public void Filtro(){
+        int ColumTable = 1;
+        trsFiltro.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText(), ColumTable));
     }
     
     
@@ -104,8 +113,8 @@ public class telaProdutos extends javax.swing.JFrame {
         });
 
         txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPesquisaKeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesquisaKeyTyped(evt);
             }
         });
 
@@ -230,11 +239,6 @@ public class telaProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
-    private void txtPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtPesquisaKeyReleased
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         if (tblProduto.getRowCount() > 0) {
@@ -286,6 +290,21 @@ if(tblProduto.getRowCount()>0){
             JOptionPane.showMessageDialog(this,"Não há clientes para exibir");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
+        // TODO add your handling code here:
+        txtPesquisa.addKeyListener(new KeyAdapter() {
+        public void keyReleased(final KeyEvent e){
+            String nome = (txtPesquisa.getText());
+            txtPesquisa.setText(nome);
+            Filtro();
+        }
+            
+        });
+        
+        trsFiltro = new TableRowSorter(tblProduto.getModel());
+        tblProduto.setRowSorter(trsFiltro);
+    }//GEN-LAST:event_txtPesquisaKeyTyped
 
     /**
      * @param args the command line arguments
