@@ -41,12 +41,19 @@ public class ProdutoController {
         
         for(int i=0;i<produtos.size();i++)
         {
-            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getIdProduto()),produtos.get(i).getNomeProduto() ,produtos.get(i).getMarcaProduto(),String.valueOf(produtos.get(i).getPrecoProduto()) });
+            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getIdProduto()),produtos.get(i).getNomeProduto(),produtos.get(i).getModeloProduto() ,produtos.get(i).getMarcaProduto(),String.valueOf(produtos.get(i).getPrecoProduto()) });
         
         }
         
         return listaProdutos;
         
+    }
+    
+    public static ArrayList<Produto> carregarProdutos()
+    {
+        return ProdutoDAO.getProdutos();
+
+
     }
     
 }

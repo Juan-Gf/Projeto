@@ -5,6 +5,9 @@
  */
 package view;
 
+import Controller.ClienteC;
+import Model.Cliente;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +15,48 @@ import javax.swing.JOptionPane;
  * @author juan
  */
 public class ExibirCliente extends javax.swing.JFrame {
-
+    private int ClienteID;
     /**
      * Creates new form ExibiCliente
      */
     public ExibirCliente() {
         initComponents();
+    }
+    
+     public ExibirCliente(int id) {
+        initComponents();
+        ClienteID=id;
+        carregaCliente(ClienteID);
+        
+    }
+     
+        public void carregaCliente(int id){
+        ArrayList<Cliente> lista = new ArrayList<>();
+        lista = ClienteC.carregarClientes();
+        for (Cliente c : lista) {
+            if (c.getId() == id) {
+                txtIDCliente.setText(String.valueOf(c.getId()));
+                txtNome.setText(String.valueOf(c.getNome()));
+                cFmtCPF.setText(String.valueOf(c.getCPF()));
+                cFmtNacimento.setText(String.valueOf(c.getData()));
+                cBoxSexo.setSelectedItem(c.getSexo());
+                jFmtTelefone.setText(String.valueOf(c.getTelefone()));
+                jFmtCelular.setText(String.valueOf(c.getCelular()));
+                txtEmail.setText(String.valueOf(c.getEmail()));
+                txtRua.setText(String.valueOf(c.getRua()));
+                txtNumero.setText(String.valueOf(c.getNumero()));
+                txtComplemento.setText(String.valueOf(c.getComplemento()));
+                jFmtCEP.setText(String.valueOf(c.getCep()));
+                txtBairro.setText(String.valueOf(c.getBairro()));
+                txtPonto.setText(String.valueOf(c.getReferencia()));
+                txtPais.setText(String.valueOf(c.getPais()));
+                txtCidade.setText(String.valueOf(c.getCidade()));
+                jFmtUF.setText(String.valueOf(c.getUf()));
+                
+                
+            }
+        }
+        
     }
 
     /**
@@ -50,11 +89,11 @@ public class ExibirCliente extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRua = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         lblComplemento = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtComplemento = new javax.swing.JTextField();
         lblCEP = new javax.swing.JLabel();
         jFmtCEP = new javax.swing.JFormattedTextField();
         lblBairro = new javax.swing.JLabel();
@@ -234,20 +273,20 @@ public class ExibirCliente extends javax.swing.JFrame {
 
         lblRua.setText("Rua:");
 
-        jTextField1.setEditable(false);
+        txtRua.setEditable(false);
 
         lblNumero.setText("Numero:");
 
-        jTextField2.setEditable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.setEditable(false);
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
             }
         });
 
         lblComplemento.setText("Complemento:");
 
-        jTextField3.setEditable(false);
+        txtComplemento.setEditable(false);
 
         lblCEP.setText("CEP:");
 
@@ -329,12 +368,12 @@ public class ExibirCliente extends javax.swing.JFrame {
                                         .addGap(4, 12, Short.MAX_VALUE)
                                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(27, 27, 27)
                                                 .addComponent(lblComplemento)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField3))
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(txtComplemento))
+                                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PnlEnderecoLayout.setVerticalGroup(
@@ -343,13 +382,13 @@ public class ExibirCliente extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRua)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumero)
                     .addComponent(lblComplemento)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCEP)
@@ -424,9 +463,9 @@ public class ExibirCliente extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_mItemSairActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtTelefoneActionPerformed
         // TODO add your handling code here:
@@ -494,9 +533,6 @@ public class ExibirCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFmtUF;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPF;
@@ -519,10 +555,13 @@ public class ExibirCliente extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPonto;
+    private javax.swing.JTextField txtRua;
     // End of variables declaration//GEN-END:variables
 }

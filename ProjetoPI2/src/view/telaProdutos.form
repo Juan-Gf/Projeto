@@ -184,6 +184,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Deletar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="btnModificar">
           <Properties>
@@ -192,6 +195,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnNovo">
           <Properties>
@@ -211,6 +217,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Exibir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExibirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jCbFiltro">
           <Properties>

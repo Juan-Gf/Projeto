@@ -199,6 +199,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIDCliente">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNome">
               <Properties>
@@ -329,7 +332,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnSalvar" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="btnAtualizar" min="-2" pref="74" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -359,13 +362,13 @@
                                               <EmptySpace min="4" pref="12" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jTextField2" min="-2" pref="74" max="-2" attributes="0"/>
+                                                      <Component id="txtNumero" min="-2" pref="74" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                                       <Component id="lblComplemento" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jTextField3" max="32767" attributes="0"/>
+                                                      <Component id="txtComplemento" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jTextField1" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
+                                                  <Component id="txtRua" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -383,14 +386,14 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblRua" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRua" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -421,7 +424,7 @@
                       </Group>
                       <EmptySpace pref="91" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnSalvar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnAtualizar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btnCancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
@@ -435,16 +438,16 @@
                 <Property name="text" type="java.lang.String" value="Rua:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtRua">
             </Component>
             <Component class="javax.swing.JLabel" name="lblNumero">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Numero:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txtNumero">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblComplemento">
@@ -452,7 +455,7 @@
                 <Property name="text" type="java.lang.String" value="Complemento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="txtComplemento">
             </Component>
             <Component class="javax.swing.JLabel" name="lblCEP">
               <Properties>
@@ -504,12 +507,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSalvar">
+            <Component class="javax.swing.JButton" name="btnAtualizar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -40,6 +40,22 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             if (c.getId() == id) {
                 txtIDCliente.setText(String.valueOf(c.getId()));
                 txtNome.setText(String.valueOf(c.getNome()));
+                cFmtCPF.setText(String.valueOf(c.getCPF()));
+                cFmtNacimento.setText(String.valueOf(c.getData()));
+                cBoxSexo.setSelectedItem(c.getSexo());
+                jFmtTelefone.setText(String.valueOf(c.getTelefone()));
+                jFmtCelular.setText(String.valueOf(c.getCelular()));
+                txtEmail.setText(String.valueOf(c.getEmail()));
+                txtRua.setText(String.valueOf(c.getRua()));
+                txtNumero.setText(String.valueOf(c.getNumero()));
+                txtComplemento.setText(String.valueOf(c.getComplemento()));
+                jFmtCEP.setText(String.valueOf(c.getCep()));
+                txtBairro.setText(String.valueOf(c.getBairro()));
+                txtPonto.setText(String.valueOf(c.getReferencia()));
+                txtPais.setText(String.valueOf(c.getPais()));
+                txtCidade.setText(String.valueOf(c.getCidade()));
+                jFmtUF.setText(String.valueOf(c.getUf()));
+                
                 
             }
         }
@@ -79,11 +95,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRua = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         lblComplemento = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtComplemento = new javax.swing.JTextField();
         lblCEP = new javax.swing.JLabel();
         jFmtCEP = new javax.swing.JFormattedTextField();
         lblBairro = new javax.swing.JLabel();
@@ -97,7 +113,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         lblUF = new javax.swing.JLabel();
         jFmtUF = new javax.swing.JFormattedTextField();
         btnCancelar = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
         BmnuBarra = new javax.swing.JMenuBar();
         JmnuExecutar = new javax.swing.JMenu();
         mItemSalvar = new javax.swing.JMenuItem();
@@ -109,6 +125,8 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         setResizable(false);
 
         lblIDCliente.setText("ID Cliente:");
+
+        txtIDCliente.setEditable(false);
 
         lblNome.setText("Nome:");
 
@@ -243,9 +261,9 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         lblNumero.setText("Numero:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
             }
         });
 
@@ -270,10 +288,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             }
         });
 
-        btnSalvar.setText("Atualizar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
@@ -303,7 +321,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                 .addGroup(PnlEnderecoLayout.createSequentialGroup()
                                     .addComponent(btnCancelar)
                                     .addGap(18, 18, 18)
-                                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                                         .addComponent(lblPonto)
@@ -326,12 +344,12 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                                         .addGap(4, 12, Short.MAX_VALUE)
                                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(27, 27, 27)
                                                 .addComponent(lblComplemento)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField3))
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(txtComplemento))
+                                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addContainerGap(20, Short.MAX_VALUE))))
         );
         PnlEnderecoLayout.setVerticalGroup(
@@ -340,13 +358,13 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRua)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumero)
                     .addComponent(lblComplemento)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCEP)
@@ -371,7 +389,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72))
         );
@@ -432,20 +450,29 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtCelularActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       
+       new ListaCliente().setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        JOptionPane.showMessageDialog(null,"Salvo!");
-        new ListaCliente().setVisible(true);
-       this.dispose(); // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+                jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
+                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
+                {
+                    //Recarrego a tabela com os dados resgatados do banco de dados                   
+                    
+                    JOptionPane.showMessageDialog(null,"Cliente Atualizado com sucesso!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                }    
+        new ListaCliente().setVisible(true);  
+        this.dispose();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -487,8 +514,8 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JMenu JmnuExecutar;
     private javax.swing.JPanel PnlDadosPesoal;
     private javax.swing.JPanel PnlEndereco;
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cBoxSexo;
     private javax.swing.JFormattedTextField cFmtCPF;
     private javax.swing.JFormattedTextField cFmtNacimento;
@@ -497,9 +524,6 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JFormattedTextField jFmtUF;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPF;
@@ -522,11 +546,14 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPonto;
+    private javax.swing.JTextField txtRua;
     // End of variables declaration//GEN-END:variables
 
     
