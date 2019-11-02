@@ -20,6 +20,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
      */
     public InicializacaoSistema() {
         initComponents();
+        
     }
 
     /**
@@ -32,19 +33,17 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
         btnClientes = new javax.swing.JButton();
         btnVenda = new javax.swing.JButton();
         btnProduto = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
-        lblLogo = new javax.swing.JLabel();
-        mnuBarra = new javax.swing.JMenuBar();
-        mnuExcutar = new javax.swing.JMenu();
-        ImnuProd = new javax.swing.JMenuItem();
-        ImnuVenda = new javax.swing.JMenuItem();
-        ImnuRelatorio = new javax.swing.JMenuItem();
-        ImnuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
+        setLocation(new java.awt.Point(0, 0));
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Cliente-18dp.png"))); // NOI18N
         btnClientes.setText("Clientes");
@@ -78,8 +77,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
             }
         });
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,15 +93,15 @@ public class InicializacaoSistema extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
+                .addGap(31, 31, 31)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,32 +111,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
                     .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67))
         );
-
-        mnuBarra.setBackground(new java.awt.Color(204, 204, 204));
-
-        mnuExcutar.setText("Executar");
-
-        ImnuProd.setText("Produto");
-        mnuExcutar.add(ImnuProd);
-
-        ImnuVenda.setText("Venda");
-        ImnuVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImnuVendaActionPerformed(evt);
-            }
-        });
-        mnuExcutar.add(ImnuVenda);
-
-        ImnuRelatorio.setText("Relatorio");
-        mnuExcutar.add(ImnuRelatorio);
-
-        ImnuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Exit-18dp.png"))); // NOI18N
-        ImnuSair.setText("Sair");
-        mnuExcutar.add(ImnuSair);
-
-        mnuBarra.add(mnuExcutar);
-
-        setJMenuBar(mnuBarra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,10 +125,6 @@ public class InicializacaoSistema extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ImnuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImnuVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImnuVendaActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
        view.ListaCliente cliente = new ListaCliente();
@@ -209,23 +176,18 @@ public class InicializacaoSistema extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new InicializacaoSistema().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ImnuProd;
-    private javax.swing.JMenuItem ImnuRelatorio;
-    private javax.swing.JMenuItem ImnuSair;
-    private javax.swing.JMenuItem ImnuVenda;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnProduto;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnVenda;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JMenuBar mnuBarra;
-    private javax.swing.JMenu mnuExcutar;
     // End of variables declaration//GEN-END:variables
 }
