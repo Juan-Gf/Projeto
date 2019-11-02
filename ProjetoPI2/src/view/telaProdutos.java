@@ -7,6 +7,7 @@ package view;
 
 import Controller.ProdutoController;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +21,7 @@ public class telaProdutos extends javax.swing.JFrame {
      */
     public telaProdutos() {
         initComponents();
+        this.LoadTable();
     }
     
     public void LoadTable() {
@@ -29,11 +31,17 @@ public class telaProdutos extends javax.swing.JFrame {
         tblModProduto.addColumn("ID produto");
         tblModProduto.addColumn("Nome");
         tblModProduto.addColumn("Marca");
+        tblModProduto.addColumn("Preco");
         tblProduto.setModel(tblModProduto);
 
         for (String[] c : linhasProdutos) {
             tblModProduto.addRow(c);
         }
+        
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(100);//Nome
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(300);//Deescrição
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);//Valor
     }
 
     /**
@@ -72,11 +80,11 @@ public class telaProdutos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Marca"
+                "ID", "Nome", "Marca", "Preco"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -87,9 +95,19 @@ public class telaProdutos extends javax.swing.JFrame {
 
         btnDeletar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnNovo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnNovo.setText("Novo");
@@ -101,6 +119,11 @@ public class telaProdutos extends javax.swing.JFrame {
 
         btnExibir.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnExibir.setText("Exibir");
+        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExibirActionPerformed(evt);
+            }
+        });
 
         jCbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro", "Nome", "Marca", " ", " " }));
         jCbFiltro.addActionListener(new java.awt.event.ActionListener() {
@@ -196,8 +219,7 @@ public class telaProdutos extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
-        CadProduto aparece = new CadProduto();
-        aparece.setVisible(true);
+        new CadProduto().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -208,6 +230,63 @@ public class telaProdutos extends javax.swing.JFrame {
     private void jCbFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbFiltroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCbFiltroActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if (tblProduto.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            int numeroLinha = tblProduto.getSelectedRow();
+                int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+            if (tblProduto.getSelectedRow() >= 0) {
+                new ExibirProdutoView(salvarId).setVisible(true);
+                this.dispose();
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um produto para modificar!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há produtos cadastrados");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+        if (tblProduto.getRowCount() > 0) {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            int numeroLinha = tblProduto.getSelectedRow();
+                int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+            if (tblProduto.getSelectedRow() >= 0) {
+                new ExibirProdutoView(salvarId).setVisible(true);
+                this.dispose();
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um produto!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há produtos cadastrados");
+        }
+    }//GEN-LAST:event_btnExibirActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        // TODO add your handling code here:
+        
+        if(tblProduto.getRowCount()>0){
+            
+            
+            
+            int numeroLinha= tblProduto.getSelectedRow(); //Salva o numero da linha do TABLE
+            int IDcliente = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+            
+            if(ProdutoController.excluir(IDcliente)){
+                this.LoadTable();
+                JOptionPane.showMessageDialog(this,"Cliente Exluido com Sucesso");
+                }else{
+                JOptionPane.showMessageDialog(this,"Falha na Exclusão" );
+            }
+        }else{
+            JOptionPane.showMessageDialog(this,"Não há clientes para exibir");
+        }
+    }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
      * @param args the command line arguments

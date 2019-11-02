@@ -22,6 +22,7 @@ public class CadClientView extends javax.swing.JFrame {
      */
     public CadClientView() {
         initComponents();
+        
     }
 
     /**
@@ -477,7 +478,6 @@ public class CadClientView extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null,"Salvo!");
         new ListaCliente().setVisible(true);
-
         this.dispose();        // TODO add your handling code here:
         
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -496,7 +496,7 @@ public class CadClientView extends javax.swing.JFrame {
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
       
-        ListaCliente aparece = new ListaCliente();
+       ListaCliente aparece = new ListaCliente();
        aparece.setVisible(true);
        this.dispose();    
        

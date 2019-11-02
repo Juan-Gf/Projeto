@@ -6,6 +6,7 @@
 package view;
 
 import Controller.ProdutoController;
+import java.util.ArrayList;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author matheus.dcosta2
  */
+import javax.swing.table.DefaultTableModel;
 public class CadProduto extends javax.swing.JFrame {
 
     /**
@@ -21,6 +23,8 @@ public class CadProduto extends javax.swing.JFrame {
     public CadProduto() {
         initComponents();
     }
+    
+ 
     
 
     /**
@@ -48,8 +52,6 @@ public class CadProduto extends javax.swing.JFrame {
         jlbTamanho = new javax.swing.JLabel();
         jlbPreco = new javax.swing.JLabel();
         jlbDescricao = new javax.swing.JLabel();
-        jrbFeminino = new javax.swing.JRadioButton();
-        jrbMasculino = new javax.swing.JRadioButton();
         txtModelo = new javax.swing.JTextField();
         txtDescricao = new javax.swing.JTextField();
         txtPreco = new javax.swing.JTextField();
@@ -100,14 +102,6 @@ public class CadProduto extends javax.swing.JFrame {
         jlbDescricao.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jlbDescricao.setText("Descrição:");
 
-        grupoGenero.add(jrbFeminino);
-        jrbFeminino.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jrbFeminino.setText("Feminino");
-
-        grupoGenero.add(jrbMasculino);
-        jrbMasculino.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jrbMasculino.setText("Masculino");
-
         txtModelo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         txtDescricao.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -157,6 +151,8 @@ public class CadProduto extends javax.swing.JFrame {
 
         jCbTamanho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "35 à 38", "39 à 42", "43 à 45" }));
 
+        jCbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -202,12 +198,8 @@ public class CadProduto extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(txtNome)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jCbTamanho, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jrbFeminino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrbMasculino)))))))
+                                    .addComponent(jCbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -235,9 +227,8 @@ public class CadProduto extends javax.swing.JFrame {
                     .addComponent(jlbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrbFeminino)
-                    .addComponent(jrbMasculino)
-                    .addComponent(jblGenero))
+                    .addComponent(jblGenero)
+                    .addComponent(jCbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbTamanho)
@@ -282,7 +273,7 @@ public class CadProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new InicializacaoSistema().setVisible(true);
+        new telaProdutos().setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -291,27 +282,30 @@ public class CadProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtQuantidadeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        String genero;
-        if(grupoGenero.isSelected((ButtonModel) jrbFeminino)){
-            genero = "Feminino";
-            
-        }else{
-            genero= "Masculino";
-        }
+       
 
         
-        
-      /*  if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),txtQuantidade.getText(),jCbMarca.getSelectedItem().toString(),
-                jCbCategoria.getSelectedItem().toString(),genero,jCbTamanho.getSelectedItem().toString(),txtPreco.getText(),txtDescricao.getText()))
+        String valorUnitario = txtPreco.getText();
+        String quantidade = txtQuantidade.getText();
+
+        if(ProdutoController.salvar(txtNome.getText(),txtModelo.getText(),Integer.parseInt(quantidade),jCbMarca.getSelectedItem().toString(),
+                jCbCategoria.getSelectedItem().toString(),jCbGenero.getSelectedItem().toString(),jCbTamanho.getSelectedItem().toString(),Double.parseDouble(valorUnitario),txtDescricao.getText()))
                 {
                     //Recarrego a tabela com os dados resgatados do banco de dados                   
                     
-                    JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
                 }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto");
                 }
-        */
+
+       new telaProdutos().setVisible(true);
+       this.dispose();
+       
+       
+
+        
        JOptionPane.showMessageDialog(null, "salvo!");      // TODO add your handling code here:
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
@@ -356,6 +350,7 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.ButtonGroup grupoTamanho;
     private javax.swing.JComboBox<String> jCbCategoria;
+    private javax.swing.JComboBox<String> jCbGenero;
     private javax.swing.JComboBox<String> jCbMarca;
     private javax.swing.JComboBox<String> jCbTamanho;
     private javax.swing.JMenu jMenu1;
@@ -372,8 +367,6 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jlbPreco;
     private javax.swing.JLabel jlbPreco1;
     private javax.swing.JLabel jlbTamanho;
-    private javax.swing.JRadioButton jrbFeminino;
-    private javax.swing.JRadioButton jrbMasculino;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNome;

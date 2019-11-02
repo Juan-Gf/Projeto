@@ -6,19 +6,65 @@
 package view;
 
 import javax.swing.JOptionPane;
+import Model.Cliente;
+import Controller.ClienteC;
+import java.util.ArrayList;
 
 /**
  *
  * @author juan
  */
 public class ModifcaClienteView extends javax.swing.JFrame {
-
+    private int clienteID;
     /**
      * Creates new form ModifcaClienteView
      */
     public ModifcaClienteView() {
+        
         initComponents();
+        
+        
     }
+    
+    public ModifcaClienteView(int id) {
+        initComponents();
+        clienteID = id;
+        carregaCliente(clienteID);
+        
+    }
+    
+    public void carregaCliente(int id){
+        ArrayList<Cliente> lista = new ArrayList<>();
+        lista = ClienteC.carregarClientes();
+        for (Cliente c : lista) {
+            if (c.getId() == id) {
+                txtIDCliente.setText(String.valueOf(c.getId()));
+                txtNome.setText(String.valueOf(c.getNome()));
+                cFmtCPF.setText(String.valueOf(c.getCPF()));
+                cFmtNacimento.setText(String.valueOf(c.getData()));
+                cBoxSexo.setSelectedItem(c.getSexo());
+                jFmtTelefone.setText(String.valueOf(c.getTelefone()));
+                jFmtCelular.setText(String.valueOf(c.getCelular()));
+                txtEmail.setText(String.valueOf(c.getEmail()));
+                txtRua.setText(String.valueOf(c.getRua()));
+                txtNumero.setText(String.valueOf(c.getNumero()));
+                txtComplemento.setText(String.valueOf(c.getComplemento()));
+                jFmtCEP.setText(String.valueOf(c.getCep()));
+                txtBairro.setText(String.valueOf(c.getBairro()));
+                txtPonto.setText(String.valueOf(c.getReferencia()));
+                txtPais.setText(String.valueOf(c.getPais()));
+                txtCidade.setText(String.valueOf(c.getCidade()));
+                jFmtUF.setText(String.valueOf(c.getUf()));
+                
+                
+            }
+        }
+        
+    }
+    
+    
+    
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,8 +115,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         lblUF = new javax.swing.JLabel();
         jFmtUF = new javax.swing.JFormattedTextField();
         btnCancelar = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
+
+        btnAtualizar = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modifica Cliente");
@@ -276,10 +324,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
             }
         });
 
-        btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
@@ -334,16 +382,38 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                             .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtRua)
                                 .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                    .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                            .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(lblComplemento)
-                                            .addGap(2, 2, 2)
-                                            .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jFmtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(20, 20, 20))))))
-                .addGap(28, 28, 28))
+                                    .addComponent(btnCancelar)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
+                                        .addComponent(lblPonto)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtPonto))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
+                                        .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblBairro)
+                                            .addComponent(lblCEP))
+                                        .addGap(22, 22, 22)
+                                        .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PnlEnderecoLayout.createSequentialGroup()
+                                                .addComponent(jFmtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(txtBairro)))
+                                    .addGroup(PnlEnderecoLayout.createSequentialGroup()
+                                        .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRua)
+                                            .addComponent(lblNumero))
+                                        .addGap(4, 12, Short.MAX_VALUE)
+                                        .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PnlEnderecoLayout.createSequentialGroup()
+                                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(27, 27, 27)
+                                                .addComponent(lblComplemento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtComplemento))
+                                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
         PnlEnderecoLayout.setVerticalGroup(
             PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,10 +452,10 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
 
         jTabbedPane1.addTab("Endereço", PnlEndereco);
@@ -421,11 +491,22 @@ public class ModifcaClienteView extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        JOptionPane.showMessageDialog(null,"Salvo!");
-        new ListaCliente().setVisible(true);
-        this.dispose(); // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+                jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
+                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
+                {
+                    //Recarrego a tabela com os dados resgatados do banco de dados                   
+                    
+                    JOptionPane.showMessageDialog(null,"Cliente Atualizado com sucesso!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                }    
+        new ListaCliente().setVisible(true);  
+        this.dispose();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
 
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
         // TODO add your handling code here:
@@ -488,11 +569,14 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PnlDadosPesoal;
     private javax.swing.JPanel PnlEndereco;
-    private javax.swing.JButton btnAnterior;
+
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnProximo;
-    private javax.swing.JButton btnSalvar;
+   
+
     private javax.swing.JComboBox<String> cBoxSexo;
     private javax.swing.JFormattedTextField cFmtCPF;
     private javax.swing.JFormattedTextField cFmtNacimento;
@@ -530,7 +614,5 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtRua;
     // End of variables declaration//GEN-END:variables
 
-    void setVisible(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

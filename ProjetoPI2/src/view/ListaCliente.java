@@ -8,6 +8,7 @@ package view;
 import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
 import Controller.ClienteC;
+import Model.Cliente;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +25,8 @@ public class ListaCliente extends javax.swing.JFrame {
         initComponents();
         this.LoadTable();
     }
+    
+    
     public void LoadTable() {
         ArrayList<String[]> linhasClientes = ClienteC.getClientes();
 
@@ -196,18 +199,19 @@ public class ListaCliente extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            if (tblClienteC.getSelectedRow() >= 0) {
-                int row = tblClienteC.getSelectedRow();
-                
+                int numeroLinha = tblClienteC.getSelectedRow();
+                int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
+            if (tblClienteC.getSelectedRow() >= 0) {                
                 new ModifcaClienteView().setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
             }
+            
         } else {
             JOptionPane.showMessageDialog(this, "Não há clientes para editar!");
         }
-
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -218,28 +222,42 @@ public class ListaCliente extends javax.swing.JFrame {
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         
-         if (tblClienteC.getRowCount() > 0) {
-            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            if (tblClienteC.getSelectedRow() >= 0) {   
-                JOptionPane.showMessageDialog(this, "Cliente deletado!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Selecione um cliente a ser deletado!");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Não há clientes para deletar!");
-        }
+
         
-       
+        if(tblClienteC.getRowCount()>0){
+            
+            
+            
+            int numeroLinha= tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
+            int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+            
+            if(ClienteC.excluir(IDcliente)){
+                this.LoadTable();
+                JOptionPane.showMessageDialog(this,"Cliente Exluido com Sucesso");
+                }else{
+                JOptionPane.showMessageDialog(this,"Falha na Exclusão" );
+            }
+        }else{
+            JOptionPane.showMessageDialog(this,"Não há clientes para exibir");
+        }
+               
+
+   
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
      if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            int numeroLinha = tblClienteC.getSelectedRow();
+                int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
             if (tblClienteC.getSelectedRow() >= 0) {
-                ExibirCliente aparece = new ExibirCliente();
-                aparece.setVisible(true);
+
+                new ExibirCliente(salvarId).setVisible(true);
                 this.dispose();
+                
+                
+
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para exibir os dados!");
             }

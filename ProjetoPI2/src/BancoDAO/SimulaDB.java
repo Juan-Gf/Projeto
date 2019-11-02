@@ -37,6 +37,8 @@ public class SimulaDB {
         listaClientes = new ArrayList<Cliente>();
         
     }
+    
+    
 
     public boolean SalvarProduto(Produto c) {
         listaProdutos.add(c);

@@ -21,6 +21,7 @@ public class Cliente {
     private String telefone;
     private String celular;
     private String email;
+    private int salvaID;
 
     public Cliente() {
         // ligar array;

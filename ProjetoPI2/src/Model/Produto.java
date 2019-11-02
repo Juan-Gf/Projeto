@@ -35,6 +35,7 @@ public class Produto {
         qtdProdutosCriados++;
         this.idProduto = qtdProdutosCriados;
         this.nomeProduto = nomeProduto;
+        this.modeloProduto = modeloProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.marcaProduto = marcaProduto;
         this.categoriaProduto = categoriaProduto;
@@ -49,6 +50,7 @@ public class Produto {
         
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
+        this.modeloProduto =modeloProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.marcaProduto = marcaProduto;
         this.categoriaProduto = categoriaProduto;
