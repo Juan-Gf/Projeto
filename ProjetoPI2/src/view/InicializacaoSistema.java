@@ -43,6 +43,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
         setTitle("Laucher CLICK-SHOES");
         setFocusable(false);
         setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
