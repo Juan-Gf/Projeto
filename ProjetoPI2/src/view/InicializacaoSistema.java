@@ -40,6 +40,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
         btnRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Laucher CLICK-SHOES");
         setFocusable(false);
         setLocation(new java.awt.Point(0, 0));
 
@@ -61,7 +62,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
             }
         });
 
-        btnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Produto18dp.png"))); // NOI18N
+        btnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/icons8-produto-16.png"))); // NOI18N
         btnProduto.setText("Produtos");
         btnProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +91,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)

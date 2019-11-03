@@ -36,13 +36,6 @@ public class CadProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupoGenero = new javax.swing.ButtonGroup();
-        grupoTamanho = new javax.swing.ButtonGroup();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jlbNome = new javax.swing.JLabel();
         jlbPreco1 = new javax.swing.JLabel();
@@ -64,16 +57,6 @@ public class CadProduto extends javax.swing.JFrame {
         jblGenero = new javax.swing.JLabel();
         jCbTamanho = new javax.swing.JComboBox<>();
         jCbGenero = new javax.swing.JComboBox<>();
-
-        jMenu1.setText("File");
-        jMenuBar2.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar2.add(jMenu2);
-
-        jMenu3.setText("jMenu3");
-
-        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Produtos");
@@ -105,7 +88,6 @@ public class CadProduto extends javax.swing.JFrame {
 
         txtModelo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
-        txtDescricao.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtDescricao.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtDescricao.setToolTipText("");
         txtDescricao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -347,17 +329,10 @@ public class CadProduto extends javax.swing.JFrame {
     private javax.swing.JLabel JlbQuantidade;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.ButtonGroup grupoGenero;
-    private javax.swing.ButtonGroup grupoTamanho;
     private javax.swing.JComboBox<String> jCbCategoria;
     private javax.swing.JComboBox<String> jCbGenero;
     private javax.swing.JComboBox<String> jCbMarca;
     private javax.swing.JComboBox<String> jCbTamanho;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblGenero;
     private javax.swing.JLabel jlbCategoria;

@@ -220,18 +220,17 @@ private TableRowSorter trsFiltro;
                 new ModifcaClienteView(salvarId).setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
+                JOptionPane.showMessageDialog(null, "Selecione um cliente para modificar!");
             }
             
         } else {
-            JOptionPane.showMessageDialog(this, "Não há clientes para editar!");
+            JOptionPane.showMessageDialog(null, "Não há clientes para ser motificado!");
         }
         
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        CadClientView cria = new CadClientView();
-        cria.setVisible(true);
+        new CadClientView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -248,12 +247,12 @@ private TableRowSorter trsFiltro;
             
             if(ClienteC.excluir(IDcliente)){
                 this.LoadTable();
-                JOptionPane.showMessageDialog(this,"Cliente Exluido com Sucesso");
+                JOptionPane.showMessageDialog(null,"Cliente exluido com sucesso");
                 }else{
-                JOptionPane.showMessageDialog(this,"Falha na Exclusão" );
+                JOptionPane.showMessageDialog(null,"Falha na Exclusão" );
             }
         }else{
-            JOptionPane.showMessageDialog(this,"Não há clientes para exibir");
+            JOptionPane.showMessageDialog(null,"Não há clientes para ser deletado");
         }
                
 
@@ -270,14 +269,12 @@ private TableRowSorter trsFiltro;
 
                 new ExibirCliente(salvarId).setVisible(true);
                 this.dispose();
-                
-                
 
             } else {
-                JOptionPane.showMessageDialog(this, "Selecione um cliente para exibir os dados!");
+                JOptionPane.showMessageDialog(null, "Selecione um cliente para exibir os dados!");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Não há clientes cadastrados");
+            JOptionPane.showMessageDialog(null, "Não há clientes cadastrados");
         }     // TODO add your handling code here:
     }//GEN-LAST:event_btnExibirActionPerformed
 

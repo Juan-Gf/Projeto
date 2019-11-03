@@ -4,28 +4,6 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
-    <Menu class="javax.swing.JMenuBar" name="mnuBarra">
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mnuExecutar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Executar"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="ImnuSair">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Alt+F4"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Pacote_imagens/Exit-18dp.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Sair"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-      </SubComponents>
-    </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -33,7 +11,6 @@
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="mnuBarra"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -106,7 +83,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblLogo" pref="69" max="32767" attributes="0"/>
+                  <Component id="lblLogo" pref="80" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
@@ -119,10 +96,10 @@
                   <Component id="jScrollPane2" min="-2" pref="166" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnExibir" alignment="1" pref="45" max="32767" attributes="0"/>
+                      <Component id="btnExibir" alignment="1" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNovo" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" pref="45" max="32767" attributes="0"/>
+                          <Component id="jButton1" alignment="3" max="32767" attributes="0"/>
                           <Component id="btnModificar" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>

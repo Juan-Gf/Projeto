@@ -68,7 +68,6 @@ public class ExibirCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PnlDadosPesoal = new javax.swing.JPanel();
         lblIDCliente = new javax.swing.JLabel();
@@ -87,6 +86,7 @@ public class ExibirCliente extends javax.swing.JFrame {
         jFmtCelular = new javax.swing.JFormattedTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        btnProximo = new javax.swing.JButton();
         PnlEndereco = new javax.swing.JPanel();
         lblRua = new javax.swing.JLabel();
         txtRua = new javax.swing.JTextField();
@@ -106,27 +106,11 @@ public class ExibirCliente extends javax.swing.JFrame {
         txtCidade = new javax.swing.JTextField();
         lblUF = new javax.swing.JLabel();
         jFmtUF = new javax.swing.JFormattedTextField();
-        ckboxEnd = new javax.swing.JCheckBox();
         btnSair = new javax.swing.JButton();
-        BmnuBarra = new javax.swing.JMenuBar();
-        JmnuExecutar = new javax.swing.JMenu();
-        mItemSalvar = new javax.swing.JMenuItem();
-        mItemCancelar = new javax.swing.JMenuItem();
-        mItemSair = new javax.swing.JMenuItem();
+        btnAnterior = new javax.swing.JButton();
 
-        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jFrame1.setTitle("Modifica Cliente");
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dados Cliente");
         setName("frExibir"); // NOI18N
         setResizable(false);
 
@@ -194,43 +178,51 @@ public class ExibirCliente extends javax.swing.JFrame {
 
         txtEmail.setEditable(false);
 
+        btnProximo.setText("Proximo");
+        btnProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProximoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PnlDadosPesoalLayout = new javax.swing.GroupLayout(PnlDadosPesoal);
         PnlDadosPesoal.setLayout(PnlDadosPesoalLayout);
         PnlDadosPesoalLayout.setHorizontalGroup(
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                        .addComponent(lblEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmail))
-                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTelefone)
-                            .addComponent(lblCelular))
-                        .addGap(10, 10, 10)
-                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFmtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(jFmtCelular)))
-                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCPF)
-                            .addComponent(lblNome)
-                            .addComponent(lblSexo)
-                            .addComponent(lblIDCliente))
-                        .addGap(6, 6, 6)
-                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                                    .addComponent(cFmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblNacimento)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cFmtNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnProximo)
+                    .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCPF)
+                                .addComponent(lblNome)
+                                .addComponent(lblSexo)
+                                .addComponent(lblIDCliente))
+                            .addGap(6, 6, 6)
+                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                                        .addComponent(cFmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblNacimento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cFmtNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTelefone)
+                                .addComponent(lblCelular)
+                                .addComponent(lblEmail))
+                            .addGap(10, 10, 10)
+                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jFmtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                    .addComponent(jFmtCelular))))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         PnlDadosPesoalLayout.setVerticalGroup(
@@ -266,7 +258,9 @@ public class ExibirCliente extends javax.swing.JFrame {
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(199, 199, 199))
+                .addGap(153, 153, 153)
+                .addComponent(btnProximo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         jTabbedPane1.addTab("Dados Pessoais", PnlDadosPesoal);
@@ -312,12 +306,17 @@ public class ExibirCliente extends javax.swing.JFrame {
 
         jFmtUF.setEditable(false);
 
-        ckboxEnd.setText("Endereço de entrega");
-
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
+            }
+        });
+
+        btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
             }
         });
 
@@ -339,13 +338,15 @@ public class ExibirCliente extends javax.swing.JFrame {
                         .addGap(86, 86, 86))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ckboxEnd, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                                 .addComponent(lblPais)
-                                .addGap(26, 26, 26)
-                                .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PnlEnderecoLayout.createSequentialGroup()
+                                    .addComponent(btnAnterior)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlEnderecoLayout.createSequentialGroup()
                                         .addComponent(lblPonto)
@@ -411,39 +412,14 @@ public class ExibirCliente extends javax.swing.JFrame {
                     .addComponent(lblUF)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(ckboxEnd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
         jTabbedPane1.addTab("Endereço", PnlEndereco);
-
-        JmnuExecutar.setText("Executar");
-        JmnuExecutar.setToolTipText("");
-
-        mItemSalvar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        mItemSalvar.setText("Salvar");
-        JmnuExecutar.add(mItemSalvar);
-
-        mItemCancelar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.SHIFT_MASK));
-        mItemCancelar.setText("Cancelar");
-        JmnuExecutar.add(mItemCancelar);
-
-        mItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        mItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Exit-18dp.png"))); // NOI18N
-        mItemSair.setText("Sair");
-        mItemSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mItemSairActionPerformed(evt);
-            }
-        });
-        JmnuExecutar.add(mItemSair);
-
-        BmnuBarra.add(JmnuExecutar);
-
-        setJMenuBar(BmnuBarra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -458,10 +434,6 @@ public class ExibirCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_mItemSairActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
@@ -480,6 +452,16 @@ public class ExibirCliente extends javax.swing.JFrame {
        new ListaCliente().setVisible(true);
        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
+
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_btnProximoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -520,20 +502,18 @@ public class ExibirCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar BmnuBarra;
-    private javax.swing.JMenu JmnuExecutar;
     private javax.swing.JPanel PnlDadosPesoal;
     private javax.swing.JPanel PnlEndereco;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnProximo;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> cBoxSexo;
     private javax.swing.JFormattedTextField cFmtCPF;
     private javax.swing.JFormattedTextField cFmtNacimento;
-    private javax.swing.JCheckBox ckboxEnd;
     private javax.swing.JFormattedTextField jFmtCEP;
     private javax.swing.JFormattedTextField jFmtCelular;
     private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JFormattedTextField jFmtUF;
-    private javax.swing.JFrame jFrame1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
@@ -552,9 +532,6 @@ public class ExibirCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblUF;
-    private javax.swing.JMenuItem mItemCancelar;
-    private javax.swing.JMenuItem mItemSair;
-    private javax.swing.JMenuItem mItemSalvar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
