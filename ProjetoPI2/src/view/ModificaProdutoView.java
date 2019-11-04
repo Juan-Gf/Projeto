@@ -305,8 +305,11 @@ private int produtoID;
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new telaProdutos().setVisible(true);
-        this.dispose();// TODO add your handling code here:
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todas alteraçoes serão perdidas* ", WIDTH);
+        if(op == 0){
+            new telaProdutos().setVisible(true);
+            this.dispose();// TODO add your handling code here:
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void jFmQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmQuantidadeActionPerformed

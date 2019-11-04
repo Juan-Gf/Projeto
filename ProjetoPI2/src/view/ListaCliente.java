@@ -74,16 +74,20 @@ private TableRowSorter trsFiltro;
         btnExibir = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnBotao = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Clientes");
+        setTitle("Organização dos Clientes");
         setResizable(false);
 
-        lblIDCliente.setText("ID Cliente:");
+        lblIDCliente.setText("CPF:");
 
+        txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisaActionPerformed(evt);
+            }
+        });
         txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPesquisaKeyTyped(evt);
@@ -99,7 +103,7 @@ private TableRowSorter trsFiltro;
 
             },
             new String [] {
-                "ID", "Nome", "Cpf"
+                "Cliente ID", "Nome", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -143,13 +147,6 @@ private TableRowSorter trsFiltro;
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Camada 2.png"))); // NOI18N
 
-        btnBotao.setText("Exibir");
-        btnBotao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBotaoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PnlListaClienteLayout = new javax.swing.GroupLayout(PnlListaCliente);
         PnlListaCliente.setLayout(PnlListaClienteLayout);
         PnlListaClienteLayout.setHorizontalGroup(
@@ -169,19 +166,15 @@ private TableRowSorter trsFiltro;
                                 .addComponent(btnExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PnlListaClienteLayout.createSequentialGroup()
-                                .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PnlListaClienteLayout.createSequentialGroup()
-                                        .addComponent(lblIDCliente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PnlListaClienteLayout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(PnlListaClienteLayout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(lblIDCliente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 56, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -189,16 +182,13 @@ private TableRowSorter trsFiltro;
             PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlListaClienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblIDCliente)
-                                .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnBotao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlListaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblIDCliente)
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnProcurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -227,21 +217,24 @@ private TableRowSorter trsFiltro;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+     
         if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-                int numeroLinha = tblClienteC.getSelectedRow();
-                int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
-            if (tblClienteC.getSelectedRow() >= 0) {                
-                new ModifcaClienteView(salvarId).setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Selecione um cliente para modificar!");
-            }
-            
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há clientes para ser motificado!");
+                
+            if (tblClienteC.getSelectedRow() >= 0) { 
+                int op = JOptionPane.showConfirmDialog(this,"Deseja modificar o cliente?","", WIDTH);
+                if(op == 0){
+                    int numeroLinha = tblClienteC.getSelectedRow();
+                    int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
+                    new ModifcaClienteView(salvarId).setVisible(true);
+                    this.dispose();
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+            }             
+        }else{     
+            JOptionPane.showMessageDialog(null, "Não há clientes cadastrados");
         }
-        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -250,24 +243,24 @@ private TableRowSorter trsFiltro;
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        
 
-        
         if(tblClienteC.getRowCount()>0){
-            
-            
-            
-            int numeroLinha= tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
-            int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
-            
-            if(ClienteC.excluir(IDcliente)){
-                this.LoadTable();
-                JOptionPane.showMessageDialog(null,"Cliente exluido com sucesso");
-                }else{
-                JOptionPane.showMessageDialog(null,"Falha na Exclusão" );
+
+            if(tblClienteC.getSelectedRow()>=0){
+                int op = JOptionPane.showConfirmDialog(this,"Deseja deletar o cliente?","", WIDTH);
+                if(op == 0){
+                    int numeroLinha= tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
+                    int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+                    ClienteC.excluir(IDcliente);
+                    this.LoadTable();
+
+                    JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"Selecione um cliente!" );
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Não há clientes para ser deletado");
+            JOptionPane.showMessageDialog(null,"Não há clientes cadastrados");
         }
                
 
@@ -278,15 +271,16 @@ private TableRowSorter trsFiltro;
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
      if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            int numeroLinha = tblClienteC.getSelectedRow();
-            int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
             if (tblClienteC.getSelectedRow() >= 0) {
-
+                int op = JOptionPane.showConfirmDialog(this,"Deseja exibir o cliente?","", WIDTH);
+                if(op == 0){
+                int numeroLinha = tblClienteC.getSelectedRow();
+                int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
                 new ExibirCliente(salvarId).setVisible(true);
                 this.dispose();
-
+                }   
             } else {
-                JOptionPane.showMessageDialog(null, "Selecione um cliente para exibir os dados!");
+                JOptionPane.showMessageDialog(null, "Selecione um cliente!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Não há clientes cadastrados");
@@ -308,9 +302,9 @@ private TableRowSorter trsFiltro;
         tblClienteC.setRowSorter(trsFiltro);
     }//GEN-LAST:event_txtPesquisaKeyTyped
 
-    private void btnBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotaoActionPerformed
-        new InicializacaoSistema().setVisible(true);
-    }//GEN-LAST:event_btnBotaoActionPerformed
+    private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,7 +345,6 @@ private TableRowSorter trsFiltro;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PnlListaCliente;
-    private javax.swing.JButton btnBotao;
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnExibir;
     private javax.swing.JButton btnModificar;

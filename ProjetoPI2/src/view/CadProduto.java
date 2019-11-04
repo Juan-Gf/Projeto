@@ -256,8 +256,11 @@ public class CadProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new telaProdutos().setVisible(true);
-        this.dispose();// TODO add your handling code here:
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todos os dados serão perdidos* ", WIDTH);
+        if(op == 0){
+            new telaProdutos().setVisible(true);
+            this.dispose();// TODO add your handling code here:
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed

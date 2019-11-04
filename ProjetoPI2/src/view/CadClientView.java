@@ -442,9 +442,11 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_jFmtCelularActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
-        new ListaCliente().setVisible(true);
-        this.dispose();       
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todos os dados serão perdidos* ", WIDTH);
+        if(op == 0){
+            new ListaCliente().setVisible(true);
+            this.dispose();// TODO add your handling code here:
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
@@ -490,10 +492,11 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-      
-       new ListaCliente().setVisible(true);
-       this.dispose();    
-       
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todos os dados serão perdidos* ", WIDTH);
+        if(op == 0){
+            new ListaCliente().setVisible(true);
+            this.dispose();// TODO add your handling code here:
+        }
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     /**

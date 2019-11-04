@@ -450,8 +450,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       new ListaCliente().setVisible(true);
-       this.dispose();
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todas alteraçoes serão perdidas* ", WIDTH);
+        if(op == 0){
+            new ListaCliente().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -470,10 +473,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-
-        new ListaCliente().setVisible(true);
-        this.dispose();
-
+        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todas alteraçoes serão perdidas* ", WIDTH);
+        if(op == 0){
+            new ListaCliente().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed

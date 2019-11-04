@@ -129,23 +129,23 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-       view.ListaCliente cliente = new ListaCliente();
-       cliente.setVisible(true);
+        new ListaCliente().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoActionPerformed
-        view.telaProdutos produto = new telaProdutos();
-        produto.setVisible(true);
+        new telaProdutos().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnProdutoActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        view.VendaView venda = new VendaView();
-        venda.setVisible(true);
+        new VendaView().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-        view.Relatorio relatorio = new Relatorio();
-        relatorio.setVisible(true);
+        new Relatorio().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**

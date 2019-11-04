@@ -78,7 +78,7 @@ private TableRowSorter trsFiltro;
         lblDigNome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Produtos");
+        setTitle("Gerenciamento de Produtos");
         setResizable(false);
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos cadastrados"));
@@ -88,7 +88,7 @@ private TableRowSorter trsFiltro;
 
             },
             new String [] {
-                "ID", "Nome", "Marca", "Preco"
+                "Produto ID ", "Nome", "Marca", "Preco"
             }
         ) {
             Class[] types = new Class [] {
@@ -139,6 +139,9 @@ private TableRowSorter trsFiltro;
         });
 
         jbtnDeletar.setText("Deletar");
+        jbtnDeletar.setMaximumSize(new java.awt.Dimension(58, 28));
+        jbtnDeletar.setMinimumSize(new java.awt.Dimension(58, 28));
+        jbtnDeletar.setPreferredSize(new java.awt.Dimension(58, 28));
         jbtnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnDeletarActionPerformed(evt);
@@ -166,10 +169,9 @@ private TableRowSorter trsFiltro;
                         .addGap(18, 18, 18)
                         .addComponent(jbtnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
                         .addComponent(lblDigNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPesquisa)))
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -178,7 +180,7 @@ private TableRowSorter trsFiltro;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,13 +189,13 @@ private TableRowSorter trsFiltro;
                     .addComponent(btnPesquisa, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,14 +228,17 @@ private TableRowSorter trsFiltro;
         // TODO add your handling code here:
         if (tblProduto.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            int numeroLinha = tblProduto.getSelectedRow();
-            int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+            
             if (tblProduto.getSelectedRow() >= 0) {
-                new ModificaProdutoView(salvarId).setVisible(true);
-                this.dispose();
-
+                int op = JOptionPane.showConfirmDialog(null,"Deseja modificar o produto?","", WIDTH);
+                if(op == 0){
+                    int numeroLinha = tblProduto.getSelectedRow();
+                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+                    new ModificaProdutoView(salvarId).setVisible(true);
+                    this.dispose();
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Selecione um produto para modificar!");
+                JOptionPane.showMessageDialog(null, "Selecione um produto!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Não há produtos cadastrados");
@@ -243,12 +248,16 @@ private TableRowSorter trsFiltro;
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
 if (tblProduto.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            int numeroLinha = tblProduto.getSelectedRow();
-            int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+           
             if (tblProduto.getSelectedRow() >= 0) {
-                new ExibirProdutoView(salvarId).setVisible(true);
-                this.dispose();
+                int op = JOptionPane.showConfirmDialog(null,"Deseja exibir o produto?","", WIDTH);
+                if(op == 0){
+                    int numeroLinha = tblProduto.getSelectedRow();
+                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
 
+                    new ExibirProdutoView(salvarId).setVisible(true);
+                    this.dispose();
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um produto!");
             }
@@ -258,22 +267,29 @@ if (tblProduto.getRowCount() > 0) {
     }//GEN-LAST:event_btnExibirActionPerformed
 
     private void jbtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeletarActionPerformed
-if(tblProduto.getRowCount()>0){
-
-            int numeroLinha= tblProduto.getSelectedRow(); //Salva o numero da linha do TABLE
-            int IDcliente = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
-
-            if(ProdutoController.excluir(IDcliente)){
-                this.LoadTable();
-                JOptionPane.showMessageDialog(this,"Cliente Exluido com Sucesso");
+        
+        if(tblProduto.getRowCount()>0){
+            
+            if(tblProduto.getSelectedRow() >= 0){
+                
+                int op = JOptionPane.showConfirmDialog(null,"Deseja deletar o produto?","", WIDTH);
+                if(op == 0){
+                    int numeroLinha= tblProduto.getSelectedRow(); //Salva o numero da linha do TABLE
+                    int IDcliente = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+                    ProdutoController.excluir(IDcliente);
+                    this.LoadTable();
+                    JOptionPane.showMessageDialog(this,"Produto deletado com sucesso");
+                }
             }else{
-                JOptionPane.showMessageDialog(this,"Falha na Exclusão" );
+                JOptionPane.showMessageDialog(this,"Selecione um produto!" );
             }
         }else{
-            JOptionPane.showMessageDialog(this,"Não há clientes para exibir");
-        }        // TODO add your handling code here:
+            JOptionPane.showMessageDialog(this,"Não há produtos cadastrados");
+        }
+        
+    
     }//GEN-LAST:event_jbtnDeletarActionPerformed
-
+    
     private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
         // TODO add your handling code here:
         txtPesquisa.addKeyListener(new KeyAdapter() {
