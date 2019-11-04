@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class CadClientView extends javax.swing.JFrame {
  
+    private boolean validado = false;
     /**
      * Creates new form CadClientView
      */
@@ -454,7 +455,15 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_jFmtTelefoneActionPerformed
 
     private void jFmtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCelularActionPerformed
-        // TODO add your handling code here:
+        if(jFmtCelular.getText().equals("")){
+                jFmtCelular.setBackground(Color.red);
+               JOptionPane.showMessageDialog(this, "Preenche sa porra!");
+               validado = true;
+        }
+        else{
+          jFmtCelular.setBackground(Color.white);
+          validado = false;
+        }
     }//GEN-LAST:event_jFmtCelularActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -470,7 +479,16 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-      
+        if(txtNome.getText().equals("")){
+                txtNome.setBackground(Color.red);
+               JOptionPane.showMessageDialog(this, "Preenche sa porra!");
+               validado = true;
+        }
+        else{
+          txtNome.setBackground(Color.white);
+          validado = false;
+        }
+        
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -498,10 +516,12 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
-      
-            jTabbedPane1.setSelectedIndex(1);
-        
-          
+            if(validado==false){
+                jTabbedPane1.setSelectedIndex(1);  
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Preenche sa porra!");
+            }
     }//GEN-LAST:event_btnProximoActionPerformed
     
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
