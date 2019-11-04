@@ -218,7 +218,7 @@ public class CadClientView extends javax.swing.JFrame {
                             .addComponent(lblConfEmail)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtConfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         PnlDadosPesoalLayout.setVerticalGroup(
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +236,7 @@ public class CadClientView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
-                    .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(cBoxSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefone)
@@ -262,7 +262,7 @@ public class CadClientView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Dados Pessoais", PnlDadosPesoal);
 
-        lblRua.setText("Endereço:");
+        lblRua.setText("Endereco:");
 
         lblNumero.setText("Numero:");
 
@@ -346,10 +346,10 @@ public class CadClientView extends javax.swing.JFrame {
                             .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblBairro)
                                 .addComponent(lblCEP))
-                            .addGap(32, 32, 32)
+                            .addGap(29, 29, 29)
                             .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                    .addComponent(jFmtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFmtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))
                                 .addComponent(txtBairro)))
                         .addGroup(PnlEnderecoLayout.createSequentialGroup()
@@ -368,14 +368,14 @@ public class CadClientView extends javax.swing.JFrame {
                     .addGroup(PnlEnderecoLayout.createSequentialGroup()
                         .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PnlEnderecoLayout.createSequentialGroup()
-                                .addGap(0, 110, Short.MAX_VALUE)
+                                .addGap(0, 105, Short.MAX_VALUE)
                                 .addComponent(btnAnterior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PnlEnderecoLayout.createSequentialGroup()
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCidade)
-                                    .addComponent(lblPais, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblPais, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCidade))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
@@ -388,7 +388,7 @@ public class CadClientView extends javax.swing.JFrame {
                                 .addComponent(lblUF, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         PnlEnderecoLayout.setVerticalGroup(
             PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +425,7 @@ public class CadClientView extends javax.swing.JFrame {
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUF)
                     .addComponent(jFmtUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(PnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -479,15 +479,7 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        if(txtNome.getText().equals("")){
-                txtNome.setBackground(Color.red);
-               JOptionPane.showMessageDialog(this, "Preenche sa porra!");
-               validado = true;
-        }
-        else{
-          txtNome.setBackground(Color.white);
-          validado = false;
-        }
+        
         
     }//GEN-LAST:event_txtNomeActionPerformed
 
@@ -516,12 +508,32 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
-            if(validado==false){
-                jTabbedPane1.setSelectedIndex(1);  
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Preenche sa porra!");
-            }
+        /*if(txtNome.getText().equals("")){
+            txtNome.setBackground(Color.red); 
+            JOptionPane.showMessageDialog(this, "Preenche sa porra!");
+            validado = true;
+        }
+        else{
+          txtNome.setBackground(Color.white);
+          validado = false;
+        }
+        */
+        validado = (ClienteC.validar(txtNome.getText()))||(ClienteC.validar(FmtCPF.getText()))||(ClienteC.validar(jFmtCelular.getText()));
+ 
+        if(validado==true){
+            txtNome.setBackground(Color.red);
+            FmtCPF.setBackground(Color.red);
+            jFmtCelular.setBackground(Color.red);
+            txtEmail.setBackground(Color.red);
+            
+        }
+        else{
+            txtNome.setBackground(Color.white);
+            FmtCPF.setBackground(Color.white);
+            jFmtCelular.setBackground(Color.white);
+            txtEmail.setBackground(Color.white);
+            jTabbedPane1.setSelectedIndex(1);  
+            }            
     }//GEN-LAST:event_btnProximoActionPerformed
     
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed

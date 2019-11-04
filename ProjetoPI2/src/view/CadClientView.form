@@ -114,7 +114,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -325,10 +325,10 @@
                                       <Component id="lblBairro" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblCEP" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jFmtCEP" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="jFmtCEP" min="-2" pref="139" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="txtBairro" max="32767" attributes="0"/>
@@ -355,15 +355,15 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
                                       <Component id="btnAnterior" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnCancelar" min="-2" pref="84" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblPais" min="-2" pref="43" max="-2" attributes="0"/>
                                           <Component id="lblCidade" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPais" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -384,7 +384,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -430,7 +430,7 @@
                           <Component id="lblUF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFmtUF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                      <EmptySpace pref="102" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btnSalvar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -444,7 +444,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblRua">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
+                <Property name="text" type="java.lang.String" value="Endereco:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtRua">

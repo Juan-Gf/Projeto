@@ -7,7 +7,9 @@ package Controller;
 
 import BancoDAO.ClienteDAO;
 import Model.Cliente;
+import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +18,15 @@ import java.util.ArrayList;
 
 public class ClienteC {
     
-
+    public static boolean validar(String teste){
+        if(teste.equals("")){ 
+            return true;
+        }
+        else{
+          return false;
+        }
+        
+    }
     public static boolean salvar(String pNome, String pCPF, String pData, String pSexo, String pTelefone, String pCelular, String pEmail,
             String pRua, String pNumero, String pComplemento, String pCep, String pBairro, String pReferencia, String pPais,
             String pCidade, String pUf) {
