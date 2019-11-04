@@ -279,7 +279,7 @@ private TableRowSorter trsFiltro;
      if (tblClienteC.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
             int numeroLinha = tblClienteC.getSelectedRow();
-                int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
+            int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
             if (tblClienteC.getSelectedRow() >= 0) {
 
                 new ExibirCliente(salvarId).setVisible(true);
