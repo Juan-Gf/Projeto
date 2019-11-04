@@ -64,53 +64,57 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                               <Component id="btnCancelar1" min="-2" pref="78" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnProximo" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtNome" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="FmtCPF" min="-2" pref="114" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="lblNacimento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="FmtNascimento" min="-2" pref="74" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="cBoxSexo" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jFmtTelefone" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Component id="jFmtCelular" min="-2" pref="106" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblConfEmail" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtConfEmail" min="-2" pref="255" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cBoxSexo" min="-2" pref="114" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="FmtCPF" min="-2" pref="114" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="lblNacimento" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="FmtNascimento" min="-2" pref="74" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jFmtTelefone" min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="jFmtCelular" min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="txtEmail" alignment="1" min="-2" pref="297" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -167,7 +171,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblNome">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome:"/>
+                <Property name="text" type="java.lang.String" value="*Nome:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNome">
@@ -177,7 +181,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblCPF">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CPF:"/>
+                <Property name="text" type="java.lang.String" value="*CPF:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="FmtCPF">
@@ -186,10 +190,13 @@
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FmtCPFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNacimento">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nascimento:"/>
+                <Property name="text" type="java.lang.String" value="*Nascimento:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="FmtNascimento">
@@ -240,13 +247,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblCelular">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Celular:"/>
+                <Property name="text" type="java.lang.String" value="*Celular:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFmtCelular">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="(##)####-####" subtype="-1" type="5"/>
+                  <Format format="(##)#####-####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
@@ -255,7 +262,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmail">
               <Properties>
-                <Property name="text" type="java.lang.String" value="E-mail:"/>
+                <Property name="text" type="java.lang.String" value="*E-mail:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail">
@@ -266,7 +273,7 @@
             <Component class="javax.swing.JLabel" name="lblConfEmail">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
-                <Property name="text" type="java.lang.String" value="Confirma E-mail:"/>
+                <Property name="text" type="java.lang.String" value="*Confirma E-mail:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtConfEmail">

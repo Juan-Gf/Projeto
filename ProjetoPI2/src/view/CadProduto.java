@@ -286,8 +286,8 @@ public class CadProduto extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto");
                 }
        
-       new telaProdutos().setVisible(true);
-       this.dispose();
+        new telaProdutos().setVisible(true);
+        this.dispose();
        
        
     }//GEN-LAST:event_btnSalvarActionPerformed

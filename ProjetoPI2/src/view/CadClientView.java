@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Administrator
  */
 public class CadClientView extends javax.swing.JFrame {
-
+ 
     /**
      * Creates new form CadClientView
      */
@@ -87,7 +87,7 @@ public class CadClientView extends javax.swing.JFrame {
 
         jTabbedPane1.setName(""); // NOI18N
 
-        lblNome.setText("Nome:");
+        lblNome.setText("*Nome:");
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,15 +95,20 @@ public class CadClientView extends javax.swing.JFrame {
             }
         });
 
-        lblCPF.setText("CPF:");
+        lblCPF.setText("*CPF:");
 
         try {
             FmtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        FmtCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FmtCPFActionPerformed(evt);
+            }
+        });
 
-        lblNacimento.setText("Nascimento:");
+        lblNacimento.setText("*Nascimento:");
 
         try {
             FmtNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -130,10 +135,10 @@ public class CadClientView extends javax.swing.JFrame {
             }
         });
 
-        lblCelular.setText("Celular:");
+        lblCelular.setText("*Celular:");
 
         try {
-            jFmtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jFmtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -143,7 +148,7 @@ public class CadClientView extends javax.swing.JFrame {
             }
         });
 
-        lblEmail.setText("E-mail:");
+        lblEmail.setText("*E-mail:");
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +157,7 @@ public class CadClientView extends javax.swing.JFrame {
         });
 
         lblConfEmail.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblConfEmail.setText("Confirma E-mail:");
+        lblConfEmail.setText("*Confirma E-mail:");
 
         btnProximo.setText("Proximo");
         btnProximo.addActionListener(new java.awt.event.ActionListener() {
@@ -174,42 +179,45 @@ public class CadClientView extends javax.swing.JFrame {
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                        .addGap(196, 196, 196)
                         .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnProximo))
-                    .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCPF)
+                            .addComponent(lblNome)
+                            .addComponent(lblSexo))
+                        .addGap(21, 21, 21)
+                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNome)
+                            .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                                .addComponent(FmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(lblNacimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FmtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
+                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTelefone)
+                            .addComponent(lblCelular))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFmtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlDadosPesoalLayout.createSequentialGroup()
+                            .addComponent(lblEmail)
+                            .addGap(19, 19, 19)
+                            .addComponent(txtEmail))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlDadosPesoalLayout.createSequentialGroup()
                             .addComponent(lblConfEmail)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtConfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(lblEmail)
-                        .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCPF)
-                                .addComponent(lblNome)
-                                .addComponent(lblSexo))
-                            .addGap(26, 26, 26)
-                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                                    .addComponent(FmtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(lblNacimento)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(FmtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtNome)))
-                        .addGroup(PnlDadosPesoalLayout.createSequentialGroup()
-                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblTelefone)
-                                .addComponent(lblCelular))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                            .addComponent(txtConfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         PnlDadosPesoalLayout.setVerticalGroup(
             PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,7 +462,7 @@ public class CadClientView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -467,7 +475,7 @@ public class CadClientView extends javax.swing.JFrame {
         if(ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
             jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
             txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
-    {
+        {
         //Recarrego a tabela com os dados resgatados do banco de dados
 
         JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
@@ -475,17 +483,19 @@ public class CadClientView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
         }
 
-        JOptionPane.showMessageDialog(null,"Salvo!");
+       
         new ListaCliente().setVisible(true);
         this.dispose();        // TODO add your handling code here:
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
-           
-        jTabbedPane1.setSelectedIndex(1);  
+      
+            jTabbedPane1.setSelectedIndex(1);
+        
+          
     }//GEN-LAST:event_btnProximoActionPerformed
-
+    
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
       
         jTabbedPane1.setSelectedIndex(0); 
@@ -498,6 +508,10 @@ public class CadClientView extends javax.swing.JFrame {
             this.dispose();// TODO add your handling code here:
         }
     }//GEN-LAST:event_btnCancelar1ActionPerformed
+
+    private void FmtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FmtCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FmtCPFActionPerformed
 
     /**
      * @param args the command line arguments
