@@ -8,7 +8,9 @@ package view;
 import javax.swing.JOptionPane;
 import Model.Cliente;
 import Controller.ClienteC;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -455,18 +457,24 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+       
+        //Recarrego a tabela com os dados resgatados do banco de dados                              
+        
+                    int opcao = JOptionPane.showConfirmDialog(this, "Deseja modificar cliente ?");
+                    if (opcao == 0) {
+               
+                JOptionPane.showMessageDialog(this, "Cliente modificado!" , "Modificado", WIDTH);
+                   if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
                 jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
-                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
-                {
-                    //Recarrego a tabela com os dados resgatados do banco de dados                   
-                    
-                    JOptionPane.showMessageDialog(null,"Cliente Atualizado com sucesso!");
-                }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
-                }    
-        new ListaCliente().setVisible(true);  
-        this.dispose();
+                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))  {    
+                
+                   }
+                    }else {
+                JOptionPane.showMessageDialog(this, "Falha na modificação","Error", JOptionPane.ERROR_MESSAGE);
+                                     
+        }
+                new ListaCliente().setVisible(true);  
+                this.dispose();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed

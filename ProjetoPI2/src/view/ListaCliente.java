@@ -11,7 +11,9 @@ import Controller.ClienteC;
 import Model.Cliente;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -81,8 +83,13 @@ private TableRowSorter trsFiltro;
         setTitle("Clientes");
         setResizable(false);
 
-        lblIDCliente.setText("ID Cliente:");
+        lblIDCliente.setText("CPF Cliente:");
 
+        txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisaActionPerformed(evt);
+            }
+        });
         txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPesquisaKeyTyped(evt);
@@ -90,6 +97,16 @@ private TableRowSorter trsFiltro;
         });
 
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
+        btnProcurar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProcurarMouseClicked(evt);
+            }
+        });
+        btnProcurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProcurarActionPerformed(evt);
+            }
+        });
 
         pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -235,50 +252,72 @@ private TableRowSorter trsFiltro;
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        
+                                                   
 
         
         if(tblClienteC.getRowCount()>0){
             
-            
-            
-            int numeroLinha= tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
-            int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
-            
-            if(ClienteC.excluir(IDcliente)){
-                this.LoadTable();
-                JOptionPane.showMessageDialog(null,"Cliente exluido com sucesso");
-                }else{
-                JOptionPane.showMessageDialog(null,"Falha na Exclusão" );
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há clientes para ser deletado");
-        }
-               
+          if (tblClienteC.getRowCount() > 0) {
 
-   
-        // TODO add your handling code here:
+            int numeroLinha = tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
+            int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+
+                 int opcao = JOptionPane.showConfirmDialog(this, "Deseja romover cliente ?");    
+                
+                if (opcao == 0) {
+                    if (ClienteC.excluir(IDcliente)) {
+                    this.LoadTable();           
+               
+                JOptionPane.showMessageDialog(this ,"Cliente excluido com sucesso!", "Excluido", WIDTH);
+                        
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha na exclusão","Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }} else {
+            JOptionPane.showMessageDialog(this, "Não há clientes para deletar!");
+        }
+        
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-     if (tblClienteC.getRowCount() > 0) {
+         
+        if (tblClienteC.getRowCount() >= 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            int numeroLinha = tblClienteC.getSelectedRow();
+                int numeroLinha = tblClienteC.getSelectedRow();
                 int salvarId = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha,0 ).toString());
-            if (tblClienteC.getSelectedRow() >= 0) {
-
+                
+            
+                        
+                if (tblClienteC.getSelectedRow() >= 0) {
+           
+                int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir cliente? ", "Exibir", WIDTH);
+                if (opcao ==0) {
                 new ExibirCliente(salvarId).setVisible(true);
-                this.dispose();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Selecione um cliente para exibir os dados!");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há clientes cadastrados");
-        }     // TODO add your handling code here:
+                this.dispose();               
+                }
+                }}           else{
+            JOptionPane.showMessageDialog(null, "Não há clientes para exibir!"); 
+        }                       
     }//GEN-LAST:event_btnExibirActionPerformed
-
+    
+    
     private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
+
+           if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras!");
+            return;
+        }
+
+
         // TODO add your handling code here:
         txtPesquisa.addKeyListener(new KeyAdapter() {
             public void keyReleased(final KeyEvent e) {
@@ -292,6 +331,27 @@ private TableRowSorter trsFiltro;
         trsFiltro = new TableRowSorter(tblClienteC.getModel());
         tblClienteC.setRowSorter(trsFiltro);
     }//GEN-LAST:event_txtPesquisaKeyTyped
+
+    private void btnProcurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProcurarMouseClicked
+  
+    }//GEN-LAST:event_btnProcurarMouseClicked
+
+    private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
+                  if (txtPesquisa.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite um CPF \n", "Campo obrigatório", JOptionPane.WARNING_MESSAGE);
+            
+        } else {
+                      if(txtPesquisa.getText().equals(""));
+                   JOptionPane.showMessageDialog(rootPane, "CPF não encontrado"); 
+                    
+     
+                }
+                  
+    }//GEN-LAST:event_btnProcurarActionPerformed
+
+    private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
