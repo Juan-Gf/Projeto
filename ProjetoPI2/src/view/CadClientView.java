@@ -462,20 +462,27 @@ public class CadClientView extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
         //String sexo= cBoxSexo.getSelectedItem().toString();
-        if(ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
-            jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
-            txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
+        
     {
         //Recarrego a tabela com os dados resgatados do banco de dados
 
-         JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso\n" + "                      Salvo!");
-        }else{
-            JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+        int opcao = JOptionPane.showConfirmDialog(null,"Deseja cadastrar cliente ?");
+        
+        if (opcao == 0) {
+             
+            ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+            jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
+            txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText());
+            JOptionPane.showMessageDialog(this ,"Cliente cadastrado com sucesso!", "Salvo!", WIDTH);
+        }
+            
+        else{
+            JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!", "", JOptionPane.ERROR_MESSAGE);
         }
 
         new ListaCliente().setVisible(true);
         this.dispose();          // TODO add your handling code here:
-        
+    } 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed

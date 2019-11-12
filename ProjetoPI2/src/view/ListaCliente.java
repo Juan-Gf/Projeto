@@ -296,9 +296,9 @@ private TableRowSorter trsFiltro;
                 new ExibirCliente(salvarId).setVisible(true);
                 this.dispose();               
                 }
-                }}           else{
+                }}else{
             JOptionPane.showMessageDialog(null, "Não há clientes para exibir!"); 
-        }                       
+        }                                  
     }//GEN-LAST:event_btnExibirActionPerformed
     
     
