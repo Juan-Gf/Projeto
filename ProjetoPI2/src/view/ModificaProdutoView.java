@@ -7,6 +7,7 @@ package view;
 
 import Controller.ProdutoController;
 import Model.Produto;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
@@ -166,6 +167,11 @@ private int produtoID;
                 jFmQuantidadeActionPerformed(evt);
             }
         });
+        jFmQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmQuantidadeKeyTyped(evt);
+            }
+        });
 
         txtNome.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
@@ -317,29 +323,43 @@ private int produtoID;
     }//GEN-LAST:event_jFmQuantidadeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       
-
-        
-        String valorUnitario = txtPreco.getText();
-        String quantidade = jFmQuantidade.getText();
-
-        
-        
-        if(ProdutoController.atualizar(Integer.parseInt(lblID.getText()),txtNome.getText(),txtModelo.getText(),Integer.parseInt(quantidade),jCbMarca.getSelectedItem().toString(),
+     {
+                 int opcao = JOptionPane.showConfirmDialog(this, "Deseja modificar Produto?");
+                 if (opcao == 0) {
+               
+                JOptionPane.showMessageDialog(this, "Produto modificado!" , "Modificado", WIDTH);
+                   
+                    String valorUnitario = txtPreco.getText();
+                    String quantidade = jFmQuantidade.getText();
+                if (ProdutoController.atualizar(Integer.parseInt(lblID.getText()),txtNome.getText(),txtModelo.getText(),Integer.parseInt(quantidade),jCbMarca.getSelectedItem().toString(),
                 jCbCategoria.getSelectedItem().toString(),jCbGenero.getSelectedItem().toString(),jCbTamanho.getSelectedItem().toString(),Double.parseDouble(valorUnitario),txtDescricao.getText()))
                 {
-                                    
                     
-                    JOptionPane.showMessageDialog(null,"Produto Atualizado com sucesso!");
-                }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao atualizar produto");
+                }
+                    }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao atualizar produto", "Error", JOptionPane.ERROR_MESSAGE);
                 }
        
        new telaProdutos().setVisible(true);
        this.dispose();
        
-       
+                }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void jFmQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmQuantidadeKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_jFmQuantidadeKeyTyped
 
     /**
      * @param args the command line arguments

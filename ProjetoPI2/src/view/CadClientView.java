@@ -2,6 +2,7 @@ package view;
 
 import Controller.ClienteC;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /*
@@ -108,6 +109,11 @@ public class CadClientView extends javax.swing.JFrame {
                 FmtCPFActionPerformed(evt);
             }
         });
+        FmtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FmtCPFKeyTyped(evt);
+            }
+        });
 
         lblNacimento.setText("*Nascimento:");
 
@@ -116,6 +122,11 @@ public class CadClientView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        FmtNascimento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FmtNascimentoKeyTyped(evt);
+            }
+        });
 
         lblSexo.setText("Sexo:");
 
@@ -135,6 +146,11 @@ public class CadClientView extends javax.swing.JFrame {
                 jFmtTelefoneActionPerformed(evt);
             }
         });
+        jFmtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtTelefoneKeyTyped(evt);
+            }
+        });
 
         lblCelular.setText("*Celular:");
 
@@ -146,6 +162,11 @@ public class CadClientView extends javax.swing.JFrame {
         jFmtCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtCelularActionPerformed(evt);
+            }
+        });
+        jFmtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtCelularKeyTyped(evt);
             }
         });
 
@@ -236,7 +257,7 @@ public class CadClientView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
-                    .addComponent(cBoxSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(cBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(PnlDadosPesoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefone)
@@ -271,6 +292,11 @@ public class CadClientView extends javax.swing.JFrame {
                 txtNumeroActionPerformed(evt);
             }
         });
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyTyped(evt);
+            }
+        });
 
         lblComplemento.setText("Complemento:");
 
@@ -281,6 +307,11 @@ public class CadClientView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFmtCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtCEPKeyTyped(evt);
+            }
+        });
 
         lblBairro.setText("Bairro:");
 
@@ -490,20 +521,22 @@ public class CadClientView extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
         //String sexo= cBoxSexo.getSelectedItem().toString();
-        if(ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+         int opcao = JOptionPane.showConfirmDialog(null,"Deseja cadastrar cliente ?");
+        
+        if (opcao == 0) {
+             
+            ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
             jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
-            txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
-        {
-        //Recarrego a tabela com os dados resgatados do banco de dados
-
-        JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
-        }else{
-            JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+            txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText());
+            JOptionPane.showMessageDialog(this ,"Cliente cadastrado com sucesso!", "Salvo!", WIDTH);
+        }
+            
+        else{
+            JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!", "", JOptionPane.ERROR_MESSAGE);
         }
 
-       
         new ListaCliente().setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+        this.dispose();         
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -560,6 +593,96 @@ public class CadClientView extends javax.swing.JFrame {
     private void txtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPaisActionPerformed
+
+    private void FmtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FmtCPFKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_FmtCPFKeyTyped
+
+    private void FmtNascimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FmtNascimentoKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_FmtNascimentoKeyTyped
+
+    private void jFmtTelefoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtTelefoneKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_jFmtTelefoneKeyTyped
+
+    private void jFmtCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtCelularKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_jFmtCelularKeyTyped
+
+    private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_txtNumeroKeyTyped
+
+    private void jFmtCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtCEPKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_jFmtCEPKeyTyped
 
     /**
      * @param args the command line arguments

@@ -236,10 +236,7 @@
                                   <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="199" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jblCarrinho" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="227" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jblCarrinho" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -471,6 +468,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtQuantidadeActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtQuantidadeKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtGenero">
@@ -499,6 +497,10 @@
               <Format format="###.###.###-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCPFKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="txtBuscarCPF">
           <Properties>

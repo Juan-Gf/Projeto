@@ -6,6 +6,7 @@
 package view;
 
 import Controller.ProdutoController;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
@@ -118,6 +119,11 @@ public class CadProduto extends javax.swing.JFrame {
         txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQuantidadeActionPerformed(evt);
+            }
+        });
+        txtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQuantidadeKeyTyped(evt);
             }
         });
 
@@ -291,6 +297,21 @@ public class CadProduto extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");
+            return;
+        } 
+    }//GEN-LAST:event_txtQuantidadeKeyTyped
 
     /**
      * @param args the command line arguments

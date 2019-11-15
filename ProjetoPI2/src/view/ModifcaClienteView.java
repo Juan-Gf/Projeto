@@ -8,6 +8,7 @@ package view;
 import javax.swing.JOptionPane;
 import Model.Cliente;
 import Controller.ClienteC;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
@@ -135,6 +136,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        cFmtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cFmtCPFKeyTyped(evt);
+            }
+        });
 
         lblNacimento.setText("Nacimento:");
 
@@ -143,6 +149,16 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        cFmtNacimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cFmtNacimentoActionPerformed(evt);
+            }
+        });
+        cFmtNacimento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cFmtNacimentoKeyTyped(evt);
+            }
+        });
 
         lblSexo.setText("Sexo:");
 
@@ -162,6 +178,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 jFmtTelefoneActionPerformed(evt);
             }
         });
+        jFmtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtTelefoneKeyTyped(evt);
+            }
+        });
 
         lblCelular.setText("Celular:");
 
@@ -173,6 +194,11 @@ public class ModifcaClienteView extends javax.swing.JFrame {
         jFmtCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtCelularActionPerformed(evt);
+            }
+        });
+        jFmtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtCelularKeyTyped(evt);
             }
         });
 
@@ -285,10 +311,26 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                 txtNumeroActionPerformed(evt);
             }
         });
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyTyped(evt);
+            }
+        });
 
         lblComplemento.setText("Complemento:");
 
         lblCEP.setText("CEP:");
+
+        jFmtCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtCEPActionPerformed(evt);
+            }
+        });
+        jFmtCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtCEPKeyTyped(evt);
+            }
+        });
 
         lblBairro.setText("Bairro:");
 
@@ -458,18 +500,24 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+           int opcao = JOptionPane.showConfirmDialog(this, "Deseja modificar cliente ?");
+                    if (opcao == 0) {
+               
+                JOptionPane.showMessageDialog(this, "Cliente modificado!" , "Modificado", WIDTH);
+                   if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
                 jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
-                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))
-                {
-                    //Recarrego a tabela com os dados resgatados do banco de dados                   
-                    
-                    JOptionPane.showMessageDialog(null,"Cliente Atualizado com sucesso!");
-                }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
-                }    
-        new ListaCliente().setVisible(true);  
-        this.dispose();
+                txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))  {
+                      
+               
+                
+                   }
+                    new ListaCliente().setVisible(true);  
+                     this.dispose();
+                    }else {
+                JOptionPane.showMessageDialog(this, "Falha na modificação","Error", JOptionPane.ERROR_MESSAGE);
+                                     
+        }
+                
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
@@ -489,6 +537,106 @@ public class ModifcaClienteView extends javax.swing.JFrame {
 
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void cFmtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cFmtCPFKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_cFmtCPFKeyTyped
+
+    private void cFmtNacimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cFmtNacimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cFmtNacimentoActionPerformed
+
+    private void cFmtNacimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cFmtNacimentoKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_cFmtNacimentoKeyTyped
+
+    private void jFmtTelefoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtTelefoneKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_jFmtTelefoneKeyTyped
+
+    private void jFmtCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtCelularKeyTyped
+     if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_jFmtCelularKeyTyped
+
+    private void jFmtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtCEPActionPerformed
+
+    private void jFmtCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtCEPKeyTyped
+         if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    }//GEN-LAST:event_jFmtCEPKeyTyped
+
+    private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
+
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+    
+    }//GEN-LAST:event_txtNumeroKeyTyped
 
     /**
      * @param args the command line arguments

@@ -192,6 +192,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FmtCPFActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FmtCPFKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNacimento">
@@ -205,6 +206,9 @@
                   <Format format="##/##/####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FmtNascimentoKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblSexo">
               <Properties>
@@ -243,6 +247,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtTelefoneActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFmtTelefoneKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCelular">
@@ -258,6 +263,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtCelularActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFmtCelularKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmail">
@@ -457,6 +463,7 @@
             <Component class="javax.swing.JTextField" name="txtNumero">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNumeroKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblComplemento">
@@ -477,6 +484,9 @@
                   <Format format="#####-###" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFmtCEPKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblBairro">
               <Properties>
