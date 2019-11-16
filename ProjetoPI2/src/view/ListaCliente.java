@@ -288,7 +288,21 @@ private TableRowSorter trsFiltro;
     }//GEN-LAST:event_btnExibirActionPerformed
 
     private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
-        // TODO add your handling code here:
+
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        } 
+
+       // TODO add your handling code here:
         txtPesquisa.addKeyListener(new KeyAdapter() {
             public void keyReleased(final KeyEvent e) {
                 String nome = (txtPesquisa.getText());

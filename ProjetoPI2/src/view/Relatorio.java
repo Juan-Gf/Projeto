@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rapha
@@ -52,6 +55,11 @@ public class Relatorio extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFmtDataInc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtDataIncKeyTyped(evt);
+            }
+        });
 
         lblAte.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblAte.setText("até");
@@ -61,6 +69,11 @@ public class Relatorio extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFmtDataFim.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFmtDataFimKeyTyped(evt);
+            }
+        });
 
         btnPesquisar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnPesquisar.setText("Pesquisar");
@@ -195,6 +208,36 @@ public class Relatorio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jFmtDataIncKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtDataIncKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        }
+    }//GEN-LAST:event_jFmtDataIncKeyTyped
+
+    private void jFmtDataFimKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmtDataFimKeyTyped
+       if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        }
+    }//GEN-LAST:event_jFmtDataFimKeyTyped
 
     /**
      * @param args the command line arguments

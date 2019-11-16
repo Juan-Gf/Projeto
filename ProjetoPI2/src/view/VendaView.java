@@ -8,6 +8,7 @@ import Controller.ClienteC;
 import Controller.ProdutoController;
 import Model.Cliente;
 import Model.Produto;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -223,6 +224,11 @@ public class VendaView extends javax.swing.JFrame {
                 txtQuantidadeActionPerformed(evt);
             }
         });
+        txtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQuantidadeKeyTyped(evt);
+            }
+        });
 
         txtGenero.setEditable(false);
         txtGenero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -236,6 +242,16 @@ public class VendaView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPFActionPerformed(evt);
+            }
+        });
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCPFKeyTyped(evt);
+            }
+        });
 
         txtBuscarCPF.setText("Buscar");
         txtBuscarCPF.addActionListener(new java.awt.event.ActionListener() {
@@ -408,9 +424,7 @@ public class VendaView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jblCarrinho)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jblCarrinho))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -444,11 +458,20 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void JbtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnFinalizarActionPerformed
-        // TODO add your handling code here:
+      
+        int opcao =  JOptionPane.showConfirmDialog(this, "Deseja finalizar e salvar? ", "Finalizar", WIDTH);
+               
+                if (opcao ==0) {
+                JOptionPane.showMessageDialog(null, "Salvo"); 
+                this.dispose();               
+                }
+                else{
+             JOptionPane.showMessageDialog(this, "Falha ao finalizar", "Error", JOptionPane.ERROR_MESSAGE);
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_JbtnFinalizarActionPerformed
 
     private void JbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnCancelarActionPerformed
-    
+    this.dispose();
     }//GEN-LAST:event_JbtnCancelarActionPerformed
 
     private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
@@ -473,6 +496,40 @@ public class VendaView extends javax.swing.JFrame {
     private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQuantidadeActionPerformed
+
+    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
+     
+    }//GEN-LAST:event_txtCPFActionPerformed
+
+    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
+        if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+           JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        }    // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPFKeyTyped
+
+    private void txtQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeKeyTyped
+          if (evt.getKeyChar() == '@') {
+
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
+            return;
+        }
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
+            return;
+        }
+    }//GEN-LAST:event_txtQuantidadeKeyTyped
 
     /**
      * @param args the command line arguments

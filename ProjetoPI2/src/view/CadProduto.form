@@ -285,6 +285,7 @@
         <Component class="javax.swing.JFormattedTextField" name="txtQuantidade">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtQuantidadeActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtQuantidadeKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome">

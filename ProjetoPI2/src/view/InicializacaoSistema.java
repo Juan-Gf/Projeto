@@ -5,6 +5,8 @@
  */
 package view;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
 import view.telaProdutos;
 import view.Relatorio;
 import view.VendaView;
@@ -129,23 +131,51 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        new ListaCliente().setVisible(true);
-        this.dispose();
+        int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir clientes? ", "Administrador", WIDTH);
+        if (opcao ==0){
+        view.ListaCliente cliente = new ListaCliente();
+       cliente.setVisible(true);
+        }else{
+         JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
+         new InicializacaoSistema().setVisible(true); 
+         this.dispose();
+        } 
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoActionPerformed
-        new telaProdutos().setVisible(true);
-        this.dispose();
+       int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Produtos? ", "Administrador", WIDTH);
+        if (opcao ==0){
+        view.CadProduto cadastro = new CadProduto();
+        cadastro.setVisible(true);
+        }else{
+          JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
+         new InicializacaoSistema().setVisible(true); 
+         this.dispose(); 
+        }
     }//GEN-LAST:event_btnProdutoActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        new VendaView().setVisible(true);
-        this.dispose();
+         int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Vendas? ", "Administrador", WIDTH);
+        if (opcao ==0){
+        view.VendaView venda = new VendaView();
+        venda.setVisible(true);
+        }else{
+          JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
+         new InicializacaoSistema().setVisible(true); 
+         this.dispose(); 
+        }
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-        new Relatorio().setVisible(true);
-        this.dispose();
+         int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Relatório? ", "Administrador", WIDTH);
+        if (opcao ==0){
+        view.Relatorio relat = new Relatorio();
+        relat.setVisible(true);
+        }else{
+          JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
+         new InicializacaoSistema().setVisible(true); 
+         this.dispose(); 
+        }
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
