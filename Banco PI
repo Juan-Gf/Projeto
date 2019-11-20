@@ -1,0 +1,44 @@
+create database lojacalcados;
+
+use lojacalcados;
+
+
+create table Cliente(
+id_cliente int primary key auto_increment,
+nome_cliente varchar(50) not null,
+cpf varchar (20) not null,
+data_nascimento varchar (20) not null,
+sexo varchar (20) not null,
+telefone varchar (20) not null,
+celular varchar (20) not null,
+email varchar(50) not null,
+rua varchar (50) not null,
+numero varchar(50) not null,
+complemento varchar(50) not null,
+cep varchar(50) not null,
+bairro varchar(50) not null,
+referencia varchar(50) not null,
+pais varchar(50) not null,
+cidade varchar(50) not null,
+uf varchar(50) not null);
+
+create table Produto(
+idProduto int primary key auto_increment not null,
+nomeProduto varchar(50) not null,
+modeloProduto varchar(50) not null,
+quantidadeProduto int not null,
+marcaProduto varchar(50) not null,
+categoriaProduto varchar(50) not null,
+generoProduto varchar(50) not null,
+tamanhoProduto varchar(50) not null,
+precoProduto double not null,
+descricaoProduto varchar(100) not null);
+
+create table Pedido(
+id_pedido int primary key auto_increment not null,
+cliente_pedido int,
+data_pedido varchar(10),
+produto_pedido int,
+quantidade_pedido int,
+valor_pedido double
+);

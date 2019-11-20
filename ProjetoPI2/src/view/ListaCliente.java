@@ -7,7 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import view.ModifcaClienteView;
-import Controller.ClienteC;
+import Controller.ClienteController;
 import Model.Cliente;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -32,7 +32,7 @@ private TableRowSorter trsFiltro;
     
     
     public void LoadTable() {
-        ArrayList<String[]> linhasClientes = ClienteC.getClientes();
+        ArrayList<String[]> linhasClientes = ClienteController.getClientes();
 
         DefaultTableModel tblModCliente = new DefaultTableModel();
         tblModCliente.addColumn("Cliente ID");
@@ -251,7 +251,7 @@ private TableRowSorter trsFiltro;
                 if(op == 0){
                     int numeroLinha= tblClienteC.getSelectedRow(); //Salva o numero da linha do TABLE
                     int IDcliente = Integer.parseInt(tblClienteC.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
-                    ClienteC.excluir(IDcliente);
+                    ClienteController.excluir(IDcliente);
                     this.LoadTable();
 
                     JOptionPane.showMessageDialog(null,"Cliente deletado com sucesso");

@@ -5,7 +5,7 @@
  */
 package view;
 
-import Controller.ClienteC;
+import Controller.ClienteController;
 import Model.Cliente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -32,7 +32,7 @@ public class ExibirCliente extends javax.swing.JFrame {
      
         public void carregaCliente(int id){
         ArrayList<Cliente> lista = new ArrayList<>();
-        lista = ClienteC.carregarClientes();
+        lista = ClienteController.carregarClientes();
         for (Cliente c : lista) {
             if (c.getId() == id) {
                 txtIDCliente.setText(String.valueOf(c.getId()));

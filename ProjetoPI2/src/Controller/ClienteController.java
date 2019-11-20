@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author matheus.dcosta2
  */
 
-public class ClienteC {
+public class ClienteController {
     
     public static boolean validar(String teste){
         if(teste.equals("")){ 
