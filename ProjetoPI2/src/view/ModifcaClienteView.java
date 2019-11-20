@@ -7,7 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import Model.Cliente;
-import Controller.ClienteC;
+import Controller.ClienteController;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -36,7 +36,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
     
     public void carregaCliente(int id){
         ArrayList<Cliente> lista = new ArrayList<>();
-        lista = ClienteC.carregarClientes();
+        lista = ClienteController.carregarClientes();
         for (Cliente c : lista) {
             if (c.getId() == id) {
                 txtIDCliente.setText(String.valueOf(c.getId()));
@@ -504,7 +504,7 @@ public class ModifcaClienteView extends javax.swing.JFrame {
                     if (opcao == 0) {
                
                 JOptionPane.showMessageDialog(this, "Cliente modificado!" , "Modificado", WIDTH);
-                   if(ClienteC.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+                   if(ClienteController.atualizar(Integer.parseInt(txtIDCliente.getText()),txtNome.getText(),cFmtCPF.getText(),cFmtNacimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
                 jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
                 txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText()))  {
                       

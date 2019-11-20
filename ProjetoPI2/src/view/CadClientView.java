@@ -1,6 +1,6 @@
 package view;
 
-import Controller.ClienteC;
+import Controller.ClienteController;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -525,7 +525,7 @@ public class CadClientView extends javax.swing.JFrame {
         
         if (opcao == 0) {
              
-            ClienteC.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
+            ClienteController.salvar(txtNome.getText(),FmtCPF.getText(),FmtNascimento.getText(),cBoxSexo.getSelectedItem().toString(),jFmtTelefone.getText(),
             jFmtCelular.getText(),txtEmail.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),jFmtCEP.getText(),
             txtBairro.getText(),txtPonto.getText(),txtPais.getText(),txtCidade.getText(),jFmtUF.getText());
             JOptionPane.showMessageDialog(this ,"Cliente cadastrado com sucesso!", "Salvo!", WIDTH);
@@ -551,7 +551,7 @@ public class CadClientView extends javax.swing.JFrame {
           validado = false;
         }
         */
-        validado = (ClienteC.validar(txtNome.getText()))||(ClienteC.validar(FmtCPF.getText()))||(ClienteC.validar(jFmtCelular.getText()));
+        validado = (ClienteController.validar(txtNome.getText()))||(ClienteController.validar(FmtCPF.getText()))||(ClienteController.validar(jFmtCelular.getText()));
  
         if(validado==true){
             txtNome.setBackground(Color.red);

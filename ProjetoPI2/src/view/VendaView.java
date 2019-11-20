@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-import Controller.ClienteC;
+import Controller.ClienteController;
 import Controller.ProdutoController;
 import Model.Cliente;
 import Model.Produto;
@@ -41,7 +41,7 @@ public class VendaView extends javax.swing.JFrame {
     
     public void carregaCliente(String CPF){
         ArrayList<Cliente> lista = new ArrayList<>();
-        lista = ClienteC.carregarClientes();
+        lista = ClienteController.carregarClientes();
         
         for (Cliente c : lista) {
             if (c.getCPF().equals(CPF)){
