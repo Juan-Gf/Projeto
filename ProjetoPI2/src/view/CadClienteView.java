@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import Controller.ClienteController;
 import java.awt.Color;
@@ -16,13 +16,13 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class CadClientView extends javax.swing.JFrame {
+public class CadClienteView extends javax.swing.JFrame {
  
     private boolean validado = false;
     /**
      * Creates new form CadClientView
      */
-    public CadClientView() {
+    public CadClienteView() {
         initComponents();
         
     }
@@ -521,7 +521,7 @@ public class CadClientView extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
         //String sexo= cBoxSexo.getSelectedItem().toString();
-         int opcao = JOptionPane.showConfirmDialog(null,"Deseja cadastrar cliente ?");
+        int opcao = JOptionPane.showConfirmDialog(null,"Deseja cadastrar cliente ?");
         
         if (opcao == 0) {
              
@@ -701,20 +701,21 @@ public class CadClientView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadClientView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadClientView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadClientView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadClientView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadClientView().setVisible(true);
+                new CadClienteView().setVisible(true);
             }
         });
     }

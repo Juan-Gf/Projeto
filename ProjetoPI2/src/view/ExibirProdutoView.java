@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import Controller.ProdutoController;
 import Model.Produto;
@@ -36,7 +36,7 @@ private int produtoID;
         listaP = ProdutoController.carregarProdutos();
         for(Produto p:listaP){
             if(p.getIdProduto() ==id){
-                txtNome.setText(String.valueOf(p.getNomeProduto()));
+                
                 txtModelo.setText(String.valueOf(p.getModeloProduto()));
                 jFmQuantidade.setText(String.valueOf(p.getQuantidadeProduto()));
                 jCbMarca.setSelectedItem(String.valueOf(p.getMarcaProduto()));
@@ -72,7 +72,6 @@ private int produtoID;
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jlbNome = new javax.swing.JLabel();
         jlbPreco1 = new javax.swing.JLabel();
         JlbQuantidade = new javax.swing.JLabel();
         jlbMarca = new javax.swing.JLabel();
@@ -85,7 +84,6 @@ private int produtoID;
         txtPreco = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         jFmQuantidade = new javax.swing.JFormattedTextField();
-        txtNome = new javax.swing.JTextField();
         jCbMarca = new javax.swing.JComboBox<>();
         jCbCategoria = new javax.swing.JComboBox<>();
         jblGenero = new javax.swing.JLabel();
@@ -105,9 +103,6 @@ private int produtoID;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dados do Produto");
         setResizable(false);
-
-        jlbNome.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jlbNome.setText("Nome:");
 
         jlbPreco1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jlbPreco1.setText("Modelo:");
@@ -161,9 +156,6 @@ private int produtoID;
             }
         });
 
-        txtNome.setEditable(false);
-        txtNome.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-
         jCbMarca.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jCbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- ", "Adidas", "Nike" }));
 
@@ -200,7 +192,6 @@ private int produtoID;
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jlbMarca)
-                                        .addComponent(jlbNome)
                                         .addComponent(jlbTamanho)
                                         .addComponent(jblGenero)
                                         .addComponent(jlbPreco))
@@ -211,18 +202,14 @@ private int produtoID;
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNome)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                            .addComponent(jCbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGap(15, 15, 15)
-                                                            .addComponent(jlbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jCbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(jCbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jCbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addComponent(jCbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(15, 15, 15)
+                                                    .addComponent(jlbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(jCbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jCbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jCbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addGap(169, 169, 169)
                                                     .addComponent(JlbQuantidade)
@@ -234,11 +221,7 @@ private int produtoID;
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlbNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbPreco1)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,7 +250,7 @@ private int produtoID;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlbDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
                 .addGap(50, 50, 50)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
@@ -296,7 +279,7 @@ private int produtoID;
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new telaProdutos().setVisible(true);
+        new ListaProduto().setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -360,13 +343,11 @@ private int produtoID;
     private javax.swing.JLabel jlbCategoria;
     private javax.swing.JLabel jlbDescricao;
     private javax.swing.JLabel jlbMarca;
-    private javax.swing.JLabel jlbNome;
     private javax.swing.JLabel jlbPreco;
     private javax.swing.JLabel jlbPreco1;
     private javax.swing.JLabel jlbTamanho;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }

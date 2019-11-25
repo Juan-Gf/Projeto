@@ -7,33 +7,20 @@ package Controller;
 
 import BancoDAO.PedidoDAO;
 import Model.Pedido;
-import java.util.ArrayList;
 
 /**
  *
- * @author raphael.ldalmeida
+ * @author NK
  */
 public class PedidoController {
     
-    public static boolean salvar(int pQuantidadeItens, int pDataPedido,double pValorPedido)
+    public static boolean salvar(String pIdPedido, int pIdProduto, int pIdCliente, int pQuantidadeItens,double pValorPedido)
     {
         //Salvo na memória
-        Pedido p =  new Pedido(pQuantidadeItens,pDataPedido,pValorPedido);
+        Pedido p =  new Pedido(pIdPedido, pIdProduto,pIdCliente, pQuantidadeItens, pValorPedido);
         return PedidoDAO.salvarPedido(p);
     }
     
-    public static ArrayList<String[]> getPedidos()
-    {
-        ArrayList<Pedido> pedidos = PedidoDAO.getPedidos();
-        ArrayList<String[]> listaPedidos = new ArrayList<>();
-        
-        for(int i=0;i<pedidos.size();i++)
-        {
-            listaPedidos.add(new String[]{String.valueOf(pedidos.get(i).getIdPedido()),String.valueOf(pedidos.get(i).getDataPedido()),String.valueOf(pedidos.get(i).getValorPedido()) });
-        
-        }
-        
-        return listaPedidos;
     
 }
-}
+

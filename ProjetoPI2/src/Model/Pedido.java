@@ -7,58 +7,54 @@ package Model;
 
 /**
  *
- * @author raphael.ldalmeida
+ * @author NK
  */
 public class Pedido {
     
-    private static int qtdPedidosRealizados = 1000;
-    
-    public int idPedido;
+    private String idPedido;  
+    private int idProduto;
+    private int idCliente;  
     private int quantidadeItens;
-    private int dataPedido;
     private double valorPedido;
     
-    public Pedido() {
-         //TODO:Ao conectar-se ao banco, remover incremento pelo código
-         qtdPedidosRealizados++;
-         this.idPedido =  qtdPedidosRealizados;
-    }
     
-    public Pedido(int quantidadeItens, int dataPedido,double valorPedido) {
-        
-        qtdPedidosRealizados++;
-        this.idPedido = qtdPedidosRealizados;
-        this.quantidadeItens = quantidadeItens;
-        this.dataPedido = dataPedido;
-        this.valorPedido = valorPedido;
-        
-    }
     
-    public Pedido(int idPedido, int quantidadeItens, int dataPedido,double valorPedido) {
-        
+    public Pedido(String idPedido, int idProduto, int idCliente, int quantidadeItens,double valorPedido) {
         this.idPedido = idPedido;
+        this.idProduto = idProduto;
+        this.idCliente = idCliente;
         this.quantidadeItens = quantidadeItens;
-        this.dataPedido = dataPedido;
-        this.valorPedido = valorPedido;
-        
+        this.valorPedido = valorPedido;        
     }
-
-    public static int getQtdPedidosRealizados() {
-        return qtdPedidosRealizados;
-    }
-
-    public static void setQtdPedidosRealizados(int qtdPedidosRealizados) {
-        Pedido.qtdPedidosRealizados = qtdPedidosRealizados;
-    }
-
-    public int getIdPedido() {
+    
+    //Pedido
+    public String getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(int idPedido) {
+    public void setIdPedido(String idPedido) {
         this.idPedido = idPedido;
     }
+    
+    //Produto
+    public int getIdProduto() {
+        return idProduto;
+    }
 
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+    
+    //Cliente
+    public int getIdCliente(){
+        return idCliente;
+    }
+    
+    public void setIdCliente(int idCliente){
+        this.idCliente = idCliente;
+    }
+    
+    //Quantidade Itens
     public int getQuantidadeItens() {
         return quantidadeItens;
     }
@@ -67,22 +63,17 @@ public class Pedido {
         this.quantidadeItens = quantidadeItens;
     }
 
-    public int getDataPedido() {
-        return dataPedido;
-    }
-
-    public void setDataPedido(int dataPedido) {
-        this.dataPedido = dataPedido;
-    }
-
+    //Valor Pedido
     public double getValorPedido() {
         return valorPedido;
     }
 
-    public void setValorPedido(double valorPedido) {
+    public void setValorPedido(double valorPedido){
         this.valorPedido = valorPedido;
     }
-    
-    
-    
+
+    public void setId(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+            
 }
