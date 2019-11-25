@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import Controller.ClienteController;
 import Model.Cliente;
@@ -34,7 +34,7 @@ public class ExibirCliente extends javax.swing.JFrame {
         ArrayList<Cliente> lista = new ArrayList<>();
         lista = ClienteController.carregarClientes();
         for (Cliente c : lista) {
-            if (c.getId() == id) {
+            if (c.getId()==id) {
                 txtIDCliente.setText(String.valueOf(c.getId()));
                 txtNome.setText(String.valueOf(c.getNome()));
                 cFmtCPF.setText(String.valueOf(c.getCPF()));
@@ -164,7 +164,7 @@ public class ExibirCliente extends javax.swing.JFrame {
 
         jFmtCelular.setEditable(false);
         try {
-            jFmtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jFmtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

@@ -30,11 +30,11 @@ public class Produto {
          this.idProduto =  qtdProdutosCriados;
     }
     
-    public Produto(String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, 
+    public Produto( String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, 
             String generoProduto, String tamanhoProduto, double precoProduto, String descricaoProduto) {
         qtdProdutosCriados++;
         this.idProduto = qtdProdutosCriados;
-        this.nomeProduto = nomeProduto;
+        
         this.modeloProduto = modeloProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.marcaProduto = marcaProduto;
@@ -46,10 +46,10 @@ public class Produto {
         
     }
     
-    public Produto(int idProduto, String nomeProduto, String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, String generoProduto, String tamanhoProduto, double precoProduto, String descricaoProduto) {
+    public Produto(int idProduto,  String modeloProduto,int quantidadeProduto, String marcaProduto, String categoriaProduto, String generoProduto, String tamanhoProduto, double precoProduto, String descricaoProduto) {
         
         this.idProduto = idProduto;
-        this.nomeProduto = nomeProduto;
+        
         this.modeloProduto =modeloProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.marcaProduto = marcaProduto;

@@ -9,7 +9,7 @@ import Model.Cliente;
 import Model.Pedido;
 import java.util.ArrayList;
 import Model.Produto;
-import Model.Vendas;
+
 
 /**
  *
@@ -28,8 +28,8 @@ public class SimulaDB {
     }
     private ArrayList<Cliente> listaClientes; //Simulo a tabela clientes
     private ArrayList<Produto> listaProdutos; //Simulo a tabela Produtos
-    private ArrayList<Pedido> listaPedidos; //Simulo a tabela do pedido
-    private ArrayList<Vendas> listaVendas;
+    private ArrayList<Pedido> listaPedidos; //Simulo a tabela do Ppedido
+    
 
     private SimulaDB() {
 
@@ -152,17 +152,4 @@ public class SimulaDB {
     {
         return this.listaPedidos;
     }
-    
-    public boolean SalvarVendas(Vendas c)
-    {
-        listaVendas.add(c);
-        
-        return true;
-    }
-    
-    public ArrayList<Vendas> getVendas()
-    {
-        return this.listaVendas;
-    }
-
 }

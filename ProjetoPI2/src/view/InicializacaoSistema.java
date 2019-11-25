@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
-import view.telaProdutos;
-import view.Relatorio;
-import view.VendaView;
+import View.ListaProduto;
+import View.Relatorio;
+import View.VendaView;
 
 /**
  *
@@ -133,7 +133,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir clientes? ", "Administrador", WIDTH);
         if (opcao ==0){
-        view.ListaCliente cliente = new ListaCliente();
+        View.ListaCliente cliente = new ListaCliente();
        cliente.setVisible(true);
         }else{
          JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
@@ -144,9 +144,9 @@ public class InicializacaoSistema extends javax.swing.JFrame {
 
     private void btnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoActionPerformed
        int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Produtos? ", "Administrador", WIDTH);
-        if (opcao ==0){
-        view.CadProduto cadastro = new CadProduto();
-        cadastro.setVisible(true);
+        if (opcao == 0){
+        View.ListaProduto produto = new ListaProduto();
+        produto.setVisible(true);
         }else{
           JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
          new InicializacaoSistema().setVisible(true); 
@@ -157,7 +157,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
          int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Vendas? ", "Administrador", WIDTH);
         if (opcao ==0){
-        view.VendaView venda = new VendaView();
+        View.VendaView venda = new VendaView();
         venda.setVisible(true);
         }else{
           JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);
@@ -169,7 +169,7 @@ public class InicializacaoSistema extends javax.swing.JFrame {
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
          int opcao =  JOptionPane.showConfirmDialog(this, "Deseja exibir Relatório? ", "Administrador", WIDTH);
         if (opcao ==0){
-        view.Relatorio relat = new Relatorio();
+        View.Relatorio relat = new Relatorio();
         relat.setVisible(true);
         }else{
           JOptionPane.showMessageDialog(this, "Falha na conexão", "Error", JOptionPane.ERROR_MESSAGE);

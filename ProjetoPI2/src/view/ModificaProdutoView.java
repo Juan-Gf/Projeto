@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import Controller.ProdutoController;
 import Model.Produto;
@@ -17,29 +17,31 @@ import javax.swing.JOptionPane;
  * @author matheus.dcosta2
  */
 import javax.swing.table.DefaultTableModel;
+
 public class ModificaProdutoView extends javax.swing.JFrame {
-private int produtoID;
+
+    private int produtoID;
+
     /**
      * Creates new form CadProduto
      */
     public ModificaProdutoView() {
         initComponents();
     }
-    
+
     public ModificaProdutoView(int id) {
         initComponents();
-        produtoID=id;
+        produtoID = id;
         carregaProduto(produtoID);
     }
-    
- 
-    public void carregaProduto(int id){
+
+    public void carregaProduto(int id) {
         ArrayList<Produto> listaP = new ArrayList<>();
         listaP = ProdutoController.carregarProdutos();
-        for(Produto p:listaP){
-            if(p.getIdProduto() ==id){
+        for (Produto p : listaP) {
+            if (p.getIdProduto() == id) {
                 lblID.setText(String.valueOf(p.getIdProduto()));
-                txtNome.setText(String.valueOf(p.getNomeProduto()));
+                
                 txtModelo.setText(String.valueOf(p.getModeloProduto()));
                 jFmQuantidade.setText(String.valueOf(p.getQuantidadeProduto()));
                 jCbMarca.setSelectedItem(String.valueOf(p.getMarcaProduto()));
@@ -48,13 +50,10 @@ private int produtoID;
                 jCbTamanho.setSelectedItem(String.valueOf(p.getTamanhoProduto()));
                 txtPreco.setText(String.valueOf(p.getPrecoProduto()));
                 txtDescricao.setText(String.valueOf(p.getDescricaoProduto()));
-                        
-                
-                
+
             }
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +72,6 @@ private int produtoID;
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jlbNome = new javax.swing.JLabel();
         jlbPreco1 = new javax.swing.JLabel();
         JlbQuantidade = new javax.swing.JLabel();
         jlbMarca = new javax.swing.JLabel();
@@ -84,10 +82,9 @@ private int produtoID;
         txtModelo = new javax.swing.JTextField();
         txtDescricao = new javax.swing.JTextField();
         txtPreco = new javax.swing.JTextField();
-        btnSalvar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jFmQuantidade = new javax.swing.JFormattedTextField();
-        txtNome = new javax.swing.JTextField();
         jCbMarca = new javax.swing.JComboBox<>();
         jCbCategoria = new javax.swing.JComboBox<>();
         jblGenero = new javax.swing.JLabel();
@@ -108,9 +105,6 @@ private int produtoID;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alterar Produto Cadastrado");
         setResizable(false);
-
-        jlbNome.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jlbNome.setText("Nome:");
 
         jlbPreco1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jlbPreco1.setText("Modelo:");
@@ -146,11 +140,11 @@ private int produtoID;
             }
         });
 
-        btnSalvar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
@@ -172,8 +166,6 @@ private int produtoID;
                 jFmQuantidadeKeyTyped(evt);
             }
         });
-
-        txtNome.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jCbMarca.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jCbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- ", "Adidas", "Nike" }));
@@ -215,27 +207,23 @@ private int produtoID;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlbPreco1)
-                            .addComponent(jlbMarca)
-                            .addComponent(jlbNome))
+                            .addComponent(jlbMarca))
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(JlbQuantidade)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jFmQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(txtNome)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jlbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(JlbQuantidade)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jFmQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btnCancelar)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(16, 16, 16)
+                            .addComponent(btnAtualizar))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jlbDescricao)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -246,22 +234,15 @@ private int produtoID;
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(lblID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbNome)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbPreco1)
-                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JlbQuantidade)
-                            .addComponent(jFmQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbPreco1)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JlbQuantidade)
+                    .addComponent(jFmQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbCategoria)
                     .addComponent(jCbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,7 +266,7 @@ private int produtoID;
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
@@ -311,9 +292,9 @@ private int produtoID;
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        int op = JOptionPane.showConfirmDialog(this,"Deseja cancelar o processo?","*Todas alteraçoes serão perdidas* ", WIDTH);
-        if(op == 0){
-            new telaProdutos().setVisible(true);
+        int op = JOptionPane.showConfirmDialog(this, "Deseja cancelar o processo?", "*Todas alteraçoes serão perdidas* ", WIDTH);
+        if (op == 0) {
+            new ListaProduto().setVisible(true);
             this.dispose();// TODO add your handling code here:
         }
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -322,29 +303,28 @@ private int produtoID;
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmQuantidadeActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-     {
-                 int opcao = JOptionPane.showConfirmDialog(this, "Deseja modificar Produto?");
-                 if (opcao == 0) {
-               
-                JOptionPane.showMessageDialog(this, "Produto modificado!" , "Modificado", WIDTH);
-                   
-                    String valorUnitario = txtPreco.getText();
-                    String quantidade = jFmQuantidade.getText();
-                if (ProdutoController.atualizar(Integer.parseInt(lblID.getText()),txtNome.getText(),txtModelo.getText(),Integer.parseInt(quantidade),jCbMarca.getSelectedItem().toString(),
-                jCbCategoria.getSelectedItem().toString(),jCbGenero.getSelectedItem().toString(),jCbTamanho.getSelectedItem().toString(),Double.parseDouble(valorUnitario),txtDescricao.getText()))
-                {
-                    
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        {
+            int opcao = JOptionPane.showConfirmDialog(this, "Deseja modificar Produto?");
+            if (opcao == 0) {
+
+                JOptionPane.showMessageDialog(this, "Produto modificado!", "Modificado", WIDTH);
+
+                String valorUnitario = txtPreco.getText();
+                String quantidade = jFmQuantidade.getText();
+                if (ProdutoController.atualizar(Integer.parseInt(lblID.getText()), txtModelo.getText(), Integer.parseInt(quantidade), jCbMarca.getSelectedItem().toString(),
+                        jCbCategoria.getSelectedItem().toString(), jCbGenero.getSelectedItem().toString(), jCbTamanho.getSelectedItem().toString(), Double.parseDouble(valorUnitario), txtDescricao.getText())) {
+
                 }
-                    }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao atualizar produto", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-       
-       new telaProdutos().setVisible(true);
-       this.dispose();
-       
-                }
-    }//GEN-LAST:event_btnSalvarActionPerformed
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao atualizar produto", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+
+        }
+            new ListaProduto().setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void jFmQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFmQuantidadeKeyTyped
         if (evt.getKeyChar() == '@') {
@@ -353,12 +333,12 @@ private int produtoID;
             JOptionPane.showMessageDialog(null, "Não é permitido essa tecla");
             return;
         }
-            char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' )) {
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Não é permitido letras e caracteres!");;
             return;
-        } 
+        }
     }//GEN-LAST:event_jFmQuantidadeKeyTyped
 
     /**
@@ -399,8 +379,8 @@ private int produtoID;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlbQuantidade;
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.ButtonGroup grupoTamanho;
     private javax.swing.JComboBox<String> jCbCategoria;
@@ -418,14 +398,12 @@ private int produtoID;
     private javax.swing.JLabel jlbCategoria;
     private javax.swing.JLabel jlbDescricao;
     private javax.swing.JLabel jlbMarca;
-    private javax.swing.JLabel jlbNome;
     private javax.swing.JLabel jlbPreco;
     private javax.swing.JLabel jlbPreco1;
     private javax.swing.JLabel jlbTamanho;
     private javax.swing.JLabel lblID;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }

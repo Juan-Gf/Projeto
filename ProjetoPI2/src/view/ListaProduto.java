@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import Controller.ProdutoController;
 import java.awt.event.KeyAdapter;
@@ -13,47 +13,52 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import BancoDAO.ProdutoDAO;
+import Model.Produto;
 
 /**
  *
  * @author matheus.dcosta2
  */
-public class telaProdutos extends javax.swing.JFrame {
-private TableRowSorter trsFiltro;
+public class ListaProduto extends javax.swing.JFrame {
+
+    private TableRowSorter trsFiltro;
+
     /**
      * Creates new form telaProdutos
      */
-    public telaProdutos() {
+    public ListaProduto() {
         initComponents();
+        DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
         this.LoadTable();
+                
+        
     }
-    
+
     public void LoadTable() {
-        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+        ArrayList<String[]> listaProdutos = ProdutoController.getProdutos();
 
         DefaultTableModel tblModProduto = new DefaultTableModel();
-        tblModProduto.addColumn("ID produto");
+        tblModProduto.addColumn("Produto ID");
         tblModProduto.addColumn("Nome");
         tblModProduto.addColumn("Marca");
         tblModProduto.addColumn("Preco");
         tblProduto.setModel(tblModProduto);
 
-        for (String[] c : linhasProdutos) {
+        for (String[] c : listaProdutos) {
             tblModProduto.addRow(c);
         }
-        
+
         tblProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
         tblProduto.getColumnModel().getColumn(0).setPreferredWidth(100);//Nome
         tblProduto.getColumnModel().getColumn(1).setPreferredWidth(300);//Deescrição
         tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);//Valor
     }
-    
-    public void Filtro(){
+
+    public void Filtro() {
         int ColumTable = 1;
         trsFiltro.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText(), ColumTable));
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -228,12 +233,12 @@ private TableRowSorter trsFiltro;
         // TODO add your handling code here:
         if (tblProduto.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-            
+
             if (tblProduto.getSelectedRow() >= 0) {
-                int op = JOptionPane.showConfirmDialog(null,"Deseja modificar o produto?","", WIDTH);
-                if(op == 0){
+                int op = JOptionPane.showConfirmDialog(null, "Deseja modificar o produto?", "", WIDTH);
+                if (op == 0) {
                     int numeroLinha = tblProduto.getSelectedRow();
-                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString());
                     new ModificaProdutoView(salvarId).setVisible(true);
                     this.dispose();
                 }
@@ -246,14 +251,14 @@ private TableRowSorter trsFiltro;
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-if (tblProduto.getRowCount() > 0) {
+        if (tblProduto.getRowCount() > 0) {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-           
+
             if (tblProduto.getSelectedRow() >= 0) {
-                int op = JOptionPane.showConfirmDialog(null,"Deseja exibir o produto?","", WIDTH);
-                if(op == 0){
+                int op = JOptionPane.showConfirmDialog(null, "Deseja exibir o produto?", "", WIDTH);
+                if (op == 0) {
                     int numeroLinha = tblProduto.getSelectedRow();
-                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha,0 ).toString());
+                    int salvarId = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString());
 
                     new ExibirProdutoView(salvarId).setVisible(true);
                     this.dispose();
@@ -267,40 +272,40 @@ if (tblProduto.getRowCount() > 0) {
     }//GEN-LAST:event_btnExibirActionPerformed
 
     private void jbtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeletarActionPerformed
-        
-        if(tblProduto.getRowCount()>0){
-            
-            if(tblProduto.getSelectedRow() >= 0){
-                
-                int op = JOptionPane.showConfirmDialog(null,"Deseja deletar o produto?","", WIDTH);
-                if(op == 0){
-                    int numeroLinha= tblProduto.getSelectedRow(); //Salva o numero da linha do TABLE
-                    int IDcliente = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
-                    ProdutoController.excluir(IDcliente);
+
+        if (tblProduto.getRowCount() > 0) {
+            int numeroLinha = tblProduto.getSelectedRow(); //Salva o numero da linha do TABLE
+            int idProduto = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString()); // Resga o id
+
+            if (tblProduto.getSelectedRow() >= 0) {
+
+                int op = JOptionPane.showConfirmDialog(null, "Deseja deletar o produto?", "", WIDTH);
+                if (op == 0) {
+                    ProdutoController.excluir(idProduto);
                     this.LoadTable();
-                    JOptionPane.showMessageDialog(this,"Produto deletado com sucesso");
+                    JOptionPane.showMessageDialog(this, "Produto deletado com sucesso");
                 }
-            }else{
-                JOptionPane.showMessageDialog(this,"Selecione um produto!" );
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um produto!");
             }
-        }else{
-            JOptionPane.showMessageDialog(this,"Não há produtos cadastrados");
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há produtos cadastrados");
         }
-        
-    
+
+
     }//GEN-LAST:event_jbtnDeletarActionPerformed
-    
+
     private void txtPesquisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyTyped
         // TODO add your handling code here:
         txtPesquisa.addKeyListener(new KeyAdapter() {
-        public void keyReleased(final KeyEvent e){
-            String nome = (txtPesquisa.getText());
-            txtPesquisa.setText(nome);
-            Filtro();
-        }
-            
+            public void keyReleased(final KeyEvent e) {
+                String nome = (txtPesquisa.getText());
+                txtPesquisa.setText(nome);
+                Filtro();
+            }
+
         });
-        
+
         trsFiltro = new TableRowSorter(tblProduto.getModel());
         tblProduto.setRowSorter(trsFiltro);
     }//GEN-LAST:event_txtPesquisaKeyTyped
@@ -322,20 +327,21 @@ if (tblProduto.getRowCount() > 0) {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telaProdutos().setVisible(true);
+                new ListaProduto().setVisible(true);
             }
         });
     }
