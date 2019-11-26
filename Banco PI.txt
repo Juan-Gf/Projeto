@@ -35,10 +35,10 @@ precoProduto double not null,
 descricaoProduto varchar(100) not null);
 
 create table Pedido(
-id_pedido int primary key auto_increment not null,
-cliente_pedido int,
-data_pedido varchar(10),
-produto_pedido int,
-quantidade_pedido int,
-valor_pedido double
+idPedido int primary key auto_increment ,
+idProduto int,
+idCliente int,
+quantidadeItens int,
+valorPedido double,
+numeroCompra int  
 );

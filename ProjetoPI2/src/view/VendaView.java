@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,19 +38,23 @@ public class VendaView extends javax.swing.JFrame {
     private double precoInicial;
     private double precoFinal;
     private double precoVenda;
-    private String idPedido;
+    private int idPedido;
+    private int contador=0;
+    private int numeroCompra; 
     
     public void atualizarTotal(){
       precoVenda = precoVenda + (Double)tblCarrinho.getValueAt(quantidade-1,3);
       txtValorTotal.setText(String.valueOf(precoVenda));
     }
     
-    public void criaIDPedido(){
-        
-            idPedido = "Agora Vai";
-        
-    }
 
+    Random gerador = new Random();
+    
+    public void gerarNumeroCompra(){
+        numeroCompra = gerador.nextInt(70000);
+        System.out.println(numeroCompra);
+    }
+    
     public void carregaTenis(String Modelo, String Tamanho) {
         ArrayList<Produto> listaP = new ArrayList<>();
         listaP = ProdutoController.carregarProdutos();
@@ -65,64 +70,7 @@ public class VendaView extends javax.swing.JFrame {
         }
     }
     
-//    public static boolean salvarVenda() {
-//        boolean retorno = false;
-//        Connection conexao = null;
-//        PreparedStatement instrucaoSQL = null;
-//
-//        try {
-//
-//            //Tenta estabeler a conexão com o SGBD e cria comando a ser executado conexão
-//            //Obs: A classe GerenciadorConexao já carrega o Driver e define os parâmetros de conexão
-//            conexao = GerenciadorConexao.abrirConexao();
-//
-//            instrucaoSQL = conexao.prepareStatement("INSERT INTO pedido (id_pedido,cliente_pedido,data_pedido,quantidade_pedido,)VALUES(?,?,?,?,?,?,?,?)"
-//            ,Statement.RETURN_GENERATED_KEYS);
-//            instrucaoSQL.setString(1, p.getModeloProduto());
-//            instrucaoSQL.setInt(2, p.getQuantidadeProduto());
-//            instrucaoSQL.setString(3, p.getMarcaProduto());
-//            instrucaoSQL.setString(4, p.getCategoriaProduto());
-//            instrucaoSQL.setString(5, p.getGeneroProduto());
-//            instrucaoSQL.setString(6, p.getTamanhoProduto());
-//            instrucaoSQL.setDouble(7, p.getPrecoProduto());
-//            instrucaoSQL.setString(8, p.getDescricaoProduto());//Caso queira retornar o ID do cliente
-//            
-//            //Adiciono os parâmetros ao meu comando SQL
-//
-//            int linhasAfetadas = instrucaoSQL.executeUpdate();
-//
-//            if (linhasAfetadas > 0) {
-//                retorno = true;
-//
-//                ResultSet generatedKeys = instrucaoSQL.getGeneratedKeys(); //Recupero o ID do cliente
-//                if (generatedKeys.next()) {
-//                    p.setIdProduto(generatedKeys.getInt(1));
-//                } else {
-//                    throw new SQLException("Falha ao obter o ID do produto");
-//                }
-//            } else {
-//                retorno = false;
-//            }
-//
-//        } catch (SQLException | ClassNotFoundException ex) {
-//            System.out.println(ex.getMessage());
-//            retorno = false;;
-//        } finally {
-//
-//            //Libero os recursos da memória
-//            try {
-//                if (instrucaoSQL != null) {
-//                    instrucaoSQL.close();
-//                }
-//
-//                GerenciadorConexao.fecharConexao();
-//
-//            } catch (SQLException ex) {
-//            }
-//        }
-//
-//        return retorno;
-//    }
+
     
     public void limparTenis() {
                 txtModeloTenis.setText("");
@@ -187,7 +135,7 @@ public class VendaView extends javax.swing.JFrame {
         jblValorTotal = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JTextField();
         JbtnFinalizar = new javax.swing.JButton();
-        JbtnCancelar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         jbtnCarrinho1 = new javax.swing.JButton();
         jlbPreco1 = new javax.swing.JLabel();
         JlbQuantidade = new javax.swing.JLabel();
@@ -209,6 +157,7 @@ public class VendaView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         SPquantidade = new javax.swing.JSpinner();
+        JbtnCancelar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
@@ -249,15 +198,16 @@ public class VendaView extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        tblCarrinho.setEnabled(false);
+        tblCarrinho.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblCarrinho);
+        tblCarrinho.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tblCarrinho.getColumnModel().getColumnCount() > 0) {
             tblCarrinho.getColumnModel().getColumn(0).setResizable(false);
             tblCarrinho.getColumnModel().getColumn(1).setResizable(false);
@@ -282,10 +232,10 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
-        JbtnCancelar.setText("Cancelar");
-        JbtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setText("Excluir item");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbtnCancelarActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
 
@@ -383,6 +333,13 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
+        JbtnCancelar1.setText("Cancelar");
+        JbtnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JbtnCancelar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -456,10 +413,12 @@ public class VendaView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnExcluir)
+                                .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(JbtnCancelar)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(JbtnCancelar1)
+                                        .addGap(10, 10, 10)
                                         .addComponent(JbtnFinalizar))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jblValorTotal)
@@ -491,8 +450,9 @@ public class VendaView extends javax.swing.JFrame {
                             .addComponent(jblValorTotal))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JbtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JbtnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JbtnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -568,35 +528,40 @@ public class VendaView extends javax.swing.JFrame {
         int idCliente = Integer.parseInt(txtIDCliente.getText());
         
         int quantidadeItens;
-        int repetir=quantidade;
+        int repetir=tblCarrinho.getRowCount();
         double valorPedido;
         
+            boolean cad = false;
         
         
             
-        while(repetir!=0){
-            quantidadeItens = (Integer)tblCarrinho.getValueAt(2,repetir-1);
-            valorPedido = (Integer)tblCarrinho.getValueAt(3,repetir-1);
+        for (int i = 0; i < repetir; i++) {
+            
+        
+            quantidadeItens = (Integer)tblCarrinho.getValueAt(i,2);
+            valorPedido = (double)tblCarrinho.getValueAt(i,3);
             
             
-            
-            if(PedidoController.salvar(idPedido, idProduto, idCliente, quantidadeItens, valorPedido))
+            if(PedidoController.salvar(idProduto, idCliente, quantidadeItens, valorPedido,numeroCompra))
                 {
                     //Recarrego a tabela com os dados resgatados do banco de dados                   
                     
-                    JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
-                    limparTabela();
+                    cad=true;
+                    
             }else{
                     JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto");
             }
-            repetir--;
-        }    
+            
+        }
+        if(cad==true){
+            JOptionPane.showMessageDialog(null,"Produtos cadastrado com sucesso!");
+        }
         
-           
-          
+        limparTabela();
+         
               
-        
-    
+        numeroCompra=0;
+        quantidade=0;
         this.dispose();
 
           // TODO add your handling code here:
@@ -606,10 +571,13 @@ public class VendaView extends javax.swing.JFrame {
 	((DefaultTableModel) tblCarrinho.getModel()).setRowCount(0);
     }
     
-    private void JbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnCancelarActionPerformed
-        limparTabela();         
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int linha = tblCarrinho.getSelectedRow();
+       DefaultTableModel dtmVenda = (DefaultTableModel)tblCarrinho.getModel();
+         
+         dtmVenda.removeRow(linha);
     //  this.dispose();
-    }//GEN-LAST:event_JbtnCancelarActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
         
@@ -625,7 +593,11 @@ public class VendaView extends javax.swing.JFrame {
          dtmVenda.addRow(dados);
          quantidade++;
          atualizarTotal();
-         criaIDPedido();
+         tblCarrinho.setFocusable(true);
+         if (contador==0){
+             gerarNumeroCompra();
+         }
+         contador++;
     }//GEN-LAST:event_jbtnCarrinho1ActionPerformed
 
     private void txtBuscarCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarCPFActionPerformed
@@ -676,6 +648,10 @@ public class VendaView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cboxTamanhoActionPerformed
 
+    private void JbtnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnCancelar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JbtnCancelar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -713,10 +689,11 @@ public class VendaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JbtnCancelar;
+    private javax.swing.JButton JbtnCancelar1;
     private javax.swing.JButton JbtnFinalizar;
     private javax.swing.JLabel JlbQuantidade;
     private javax.swing.JSpinner SPquantidade;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JComboBox<String> cboxTamanho;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
