@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import View.VendaView;
 
 /**
  *
@@ -33,16 +34,17 @@ public class PedidoDAO {
             //Obs: A classe GerenciadorConexao já carrega o Driver e define os parâmetros de conexão
             conexao = GerenciadorConexao.abrirConexao();
             
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO pedido (idPedido,idProduto,idCliente,quantidadeItens,valorPedido) VALUES(?, ?, ?, ?, ?)"
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO pedido (idProduto,idCliente,quantidadeItens,valorPedido, numeroCompra) VALUES( ?, ?, ?, ?, ?)"
                                                     , Statement.RETURN_GENERATED_KEYS);  //Caso queira retornar o ID do cliente
             
             //Adiciono os parâmetros ao meu comando SQL
             
-            instrucaoSQL.setString(1, p.getIdPedido());
-            instrucaoSQL.setInt(2, p.getIdProduto());
-            instrucaoSQL.setInt(3, p.getIdCliente());
-            instrucaoSQL.setInt(4, p.getQuantidadeItens());
-            instrucaoSQL.setDouble(5, p.getValorPedido());
+            
+            instrucaoSQL.setInt(1, p.getIdProduto());
+            instrucaoSQL.setInt(2, p.getIdCliente());
+            instrucaoSQL.setInt(3, p.getQuantidadeItens());
+            instrucaoSQL.setDouble(4, p.getValorPedido());
+            instrucaoSQL.setDouble(5, p.getNumeroCompra());
             
                         
             int linhasAfetadas = instrucaoSQL.executeUpdate();
@@ -53,7 +55,7 @@ public class PedidoDAO {
                 
                 ResultSet generatedKeys = instrucaoSQL.getGeneratedKeys(); //Recupero o ID do pedido
                 if (generatedKeys.next()) {
-                        p.setId(generatedKeys.getInt(1));
+                        p.setIdPedido(generatedKeys.getInt(1));
                     }
                     else {
                         throw new SQLException("Falha ao obter o ID do pedido.");

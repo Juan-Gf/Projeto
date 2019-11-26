@@ -98,7 +98,7 @@ public class ListaCliente extends javax.swing.JFrame {
 
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pacote_imagens/Procurar-18dp.png"))); // NOI18N
 
-        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Cadastrados", 1, 0));
 
         tblClienteC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

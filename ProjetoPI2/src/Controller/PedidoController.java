@@ -14,10 +14,10 @@ import Model.Pedido;
  */
 public class PedidoController {
     
-    public static boolean salvar(String pIdPedido, int pIdProduto, int pIdCliente, int pQuantidadeItens,double pValorPedido)
+    public static boolean salvar( int pIdProduto, int pIdCliente, int pQuantidadeItens,double pValorPedido, int pNumeroCompra)
     {
         //Salvo na memória
-        Pedido p =  new Pedido(pIdPedido, pIdProduto,pIdCliente, pQuantidadeItens, pValorPedido);
+        Pedido p =  new Pedido( pIdProduto,pIdCliente, pQuantidadeItens, pValorPedido, pNumeroCompra);
         return PedidoDAO.salvarPedido(p);
     }
     

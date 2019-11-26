@@ -11,28 +11,30 @@ package Model;
  */
 public class Pedido {
     
-    private String idPedido;  
+    private int idPedido;  
     private int idProduto;
     private int idCliente;  
     private int quantidadeItens;
     private double valorPedido;
+    private int numeroCompra;
     
     
     
-    public Pedido(String idPedido, int idProduto, int idCliente, int quantidadeItens,double valorPedido) {
-        this.idPedido = idPedido;
+    public Pedido( int idProduto, int idCliente, int quantidadeItens,double valorPedido, int numeroCompra) {
+        
         this.idProduto = idProduto;
         this.idCliente = idCliente;
         this.quantidadeItens = quantidadeItens;
-        this.valorPedido = valorPedido;        
+        this.valorPedido = valorPedido;    
+        this.numeroCompra=numeroCompra;
     }
     
     //Pedido
-    public String getIdPedido() {
+    public int getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(String idPedido) {
+    public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }
     
@@ -71,9 +73,14 @@ public class Pedido {
     public void setValorPedido(double valorPedido){
         this.valorPedido = valorPedido;
     }
+    
+    //Valor Compra
+    public double getNumeroCompra() {
+        return numeroCompra;
+    }
 
-    public void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setValorPedido(int numeroCompra){
+        this.numeroCompra = numeroCompra;
     }
             
 }
